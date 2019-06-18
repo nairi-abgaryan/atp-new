@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Kids and Family</title>{% endblock %}
+{% block body %}
+
+    <section class="kids-and-family secondary-pages-top-content" style="background:url('../uploads/images/kids@2x.jpg') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-6">
+                    <h1>KIDS &amp; FAMILY</h1>
+                </div>
+                <div class="col-sm-6 cover-text">
+                    <p>ATP knows that children and family<br> are integral to its mission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="kids-and-family-main-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-md-6">
+                        <img src="../uploads/images/kids n fam left.jpg" alt="">
+                    </div>
+                    <div class="col-md-6 info-text-wrapper">
+                        <p>When children and parents become involved in learning about the environment we all benefit – individually and collectively. Armenia Tree Project has developed programs and created experiences to keep families engaged in the environment and in Armenia while also having fun.</p>
+                    </div>
+                </div>
+                <div class="row center-aligned-row">
+                    <div class="col-md-6">
+                        <p></p><h5>Building Bridges Interactive</h5>
+                        <p>Play games, ask questions, and learn how you can help keep our trees and environment healthy!</p><p></p>
+                        <a href="/interactive">
+                            <button>
+                                Come Play!
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../uploads/images/Tchalo_Poster-lg.jpg" alt="">
+                    </div>
+                </div>
+                <div class="row center-aligned-row">
+                    <div class="col-md-6">
+                        <img src="../uploads/images/summer eco cvamp.jpg" alt="">
+                    </div>
+                    <div class="col-md-6 info-text-wrapper">
+                        <p></p><h5>Summer Eco-Camp and Clubs in Armenia</h5>
+                        <p>Children in Armenia have the option to join us for a week during the summer or join a club at your school</p><p></p>
+                        <a href="/camps">
+                            <button>
+                                Learn More
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="row center-aligned-row">
+                    <div class="col-md-6">
+                        <p></p><h5>Fire Safety &amp; Prevention </h5>
+                        <p>Be a leader in your community! Find out how you can prevent forest fires with Tchalo </p><p></p>
+                        <a href="/tchalo">
+                            <button>
+                                Learn More
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../uploads/images/kids n fam 3.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="community-last-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>FEATURED CONTENT</h4>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="first-content-video">
+                            <div class="support-families">
+                                <div class="title-and-play-button-wrapper">
+                                    <h3>How Armenian Villagers Are Using Trees <br>To Support Their Families</h3>
+                                    <a data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="how_planting_works" tabindex="-1" role="dialog" aria-labelledby="how_planting_works" aria-hidden="true">
+                                <div class="modal-dialogg">
+                                    <div class="modal-contentt">
+                                        <div class="modal-body">
+                                            <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <div class="video-container">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/IDHxpsufSTA" frameborder="0" allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="second-content">
+                            <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>
+                            <p>05 Feb, 2018</p>
+                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="third-content">
+                            <h3>Help us increase our planting efforts</h3>
+                            <a href="{{ path('donation',{ 'lang': app.request.locale }) }}">
+                                <button> Donate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Sample Lesson Plans</title>{% endblock %}
+{% block body %}
+
+    <section class="environmental-education-top-content secondary-pages-top-content" style="background:url('../uploads/images/education-bck.png') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-12">
+                    <h1>ENVIRONMENTAL EDUCATION<br>
+                        SAMPLE LESSONS</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 text-center">
+                    <p>Below are sample lessons from our curriculum used by ATP educators with students <br> in both Armenia and the Diaspora. Contact us to learn more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-second download-lessons-section">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>About ATP</h5>
+                    <a target="_blank" href="/sample-lessons/About.pdf">ENG</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>How to Plant a Tree</h5>
+                    <a target="_blank" href="/sample-lessons/HowtoPlanta.pdf">ENG</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>The Problem of Waste</h5>
+                    <a target="_blank" href="/sample-lessons/TheProblemofWaste.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/sample-lessons/The_Problem_of_Wastе_arm.PDF">ARM</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>Climate Change</h5>
+                    <a target="_blank" href="/sample-lessons/ClimateChange.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/sample-lessons/Climate_change_arm.PDF">ARM</a>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>The Amazing Transformation of Water</h5>
+                    <a target="_blank" href="/sample-lessons/Amazing Transformations of Water.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/sample-lessons/The_Amazing_Transformation_of_Water_arm.PDF">ARM</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>Eco-scavenger hunt</h5>
+                    <a target="_blank" href="/sample-lessons/Eco-ScavengerHunt.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/sample-lessons/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 text-center">
+                    <img src="../img/pdf-icon.svg" alt="">
+                    <h5>Eco-treasure box</h5>
+                    <a class="arm-version" target="_blank" href="/sample-lessons/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="community-last-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>FEATURED CONTENT</h4>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="first-content" style="background: url('../uploads/images/article-11.png') no-repeat; background-size: cover; height: 400px;">
+                        <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>
+                        <p>05 Feb, 2018</p>
+                        <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="second-content" style="background: url('../uploads/images/article-8.png') no-repeat; background-size: cover; height: 400px;">
+                        <h3>Help Prevent Forest Fires</h3>
+                        <p>16 Aug, 2018</p>
+                        <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 10 }) }}">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
+                        <h3>Call for Annual Tree Planting in Goris</h3>
+                        <a href="{{ path('donation',{ 'lang': app.request.locale }) }}">
+                            <button> Donate</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

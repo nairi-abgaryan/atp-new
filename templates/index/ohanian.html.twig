@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Ohanian Educational Centers</title>{% endblock %}
+{% block body %}
+
+    <section class="ohanian-educational-centers secondary-pages-top-content" style="background:url('../uploads/images/ohanian-center-cover.png') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-12">
+                    <h1>OHANIAN EDUCATIONAL CENTERS</h1>
+                    <h4>for Environmental Studies</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="ohanian-educational-centers-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-md-6 col-xs-12">
+                        <p>Built in 2005 and 2012, the Michael and Virginia Ohanian Centers for Environmental Studies are described as “living laboratories” for environmental education in Lori and Aragatsotn marzes of Armenia. Trainings and workshops are conducted throughout the year and educational programming originating in the Centers is offered at schools throughout Armenia. Over 32,000 students have visited the Centers as of 2018.&nbsp;<br>
+                            <br>
+                            The Karin center is located in the heart of ATP’s Karin Nursery, where children can observe all stages of propagation and growth. The Margahovit center boasts an experimental garden, and will soon be supplemented by an outdoor classroom sponsored by the Bilezikian family from Cape Cod, Massachusetts.</p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <img src="../uploads/images/Group 25.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-third">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="ohanian-educational-centers-bottom-single-content">
+                            <img src="../uploads/images/dripirrigation_2018.jpg" alt="">
+                            <p>Students learning about drip irrigation</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="ohanian-educational-centers-bottom-single-content">
+                            <img src="../uploads/images/Margahovit_June 8_2018.jpg" alt="">
+                            <p>Margahovit students gain an understanding about spring planting.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="ohanian-educational-centers-bottom-single-content">
+                            <img src="../uploads/images/Our instructors having  fun moment in Karin Ohanian Center with students from Yerevan.JPG" alt="">
+                            <p>Our instructors having a fun moment in Karin Ohanian Center with students from Yerevan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

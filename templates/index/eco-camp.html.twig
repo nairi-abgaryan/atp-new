@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Summer Eco Camps</title>{% endblock %}
+{% block body %}
+
+    <section class="eco-camps-top-content secondary-pages-top-content" style="background:url('../uploads/images/eco-camp-bck.jpg') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-6">
+                    <h1>ECO CAMPS IN
+                        ARMENIA</h1>
+                </div>
+                <div class="col-sm-6 cover-text">
+                    <p>Our Eco-Act Summer Camp has engaged<br> over <span>250 campers </span>since it started in 2017.<br> ATP has reached <span>over 2,000 children </span>at <br>other camps for visiting sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="eco-camps-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-md-6 col-xs-12">
+                        <p>For the past two summers, ATP has been promoting a four-day Eco Camp program that has reached thousands of children. The program includes hands-on lessons on river and forest ecosystems, biodiversity, fire prevention, and waste management.</p>
+                        <p>Our goal is to create teaching tools and programs that will promote environmental stewardship, connections between youth, problem solving skills, and an opportunity to get outdoors into nature during the long summer months.</p>
+                        <p>ATP’s four-day Eco-Act Camp can be held up to 5 separate sessions each summer.</p>
+                        <a href="mailto:info@armeniatree.org">
+                            <button class="camps-info-btn">
+                                Yes! I want more information on Eco-Camps
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <img src="../uploads/images/eco-camp-article-one.JPG" alt="">
+                    </div>
+                </div>
+                <div class="row center-aligned-row">
+                    <div class="col-md-6 col-xs-12">
+                        <img src="../uploads/images/eco-camps.png" alt="">
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <h3>A DAY IN THE LIFE OF A ATP CAMPER</h3>
+                        <h4>Day 1: Waste Management</h4>
+                        <p>The first day of camp is an exciting one where campers are introduced to nature through the exploration of waste management and by engaging in up-cycling activities.</p>
+                        <h4>Day 2: Exploring Biodiversity in Rivers</h4>
+                        <p>After a morning yoga session and a class about river biodiversity, campers hike to the nearby Aghstev River, where they examine macro-invertebrate animals to determine water quality and compared water samples and stones. Using lenses student specify the types of aquatic insects and have fun with nature. After game playing campers head back to the Ohanian Center for discussions about biodiversity.  </p>
+                        <h4>Day 3: Exploring Forest Ecosystems</h4>
+                        <p>On day 3, campers learn about fauna and flora. They visit the Mirak Family Nursery, have lunch, then hike to a nearby forest to explore biodiversity through activities, such as identifying tree species, determining tree height, and examining tree transpiration. The kids play games to create a model forest and explore species in the soil.</p>
+                        <h4>Day 4: Reflection and Discussion</h4>
+                        <p>Camp wraps up with campers making posters about future environmental projects using their newly-gained green knowledge. Campers are now environmentally-conscious and prepared to be better citizens of the environment!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

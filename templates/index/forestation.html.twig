@@ -1,0 +1,275 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Single News</title>{% endblock %}
+
+    {% block body %}
+        <section class="forestation secondary-pages-top-content" style="background:url('../uploads/images/education-bck.png') no-repeat; background-size:cover;">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-sm-6">
+                        <h1>FORESTRY</h1>
+                    </div>
+                    <div class="col-sm-6 cover-text">
+                        <p>ATP has planted more than 1,000 hectares<br>
+                            of new forests at 38 sites and employs<br>
+                            over 150 workers annually.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="forestation-main-content-wrapper">
+            <section class="community-second">
+                <div class="visible-xs visible-sm">
+                    <div class="mobile-subdropdown-wrapper ">
+                        <a href="">Mirak Family Nursery</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row center-aligned-row">
+                        <div class="col-md-6">
+                            <img src="../uploads/images/forestry-article-one.png" srcset="../img/forestry-article-one@2x.png 2x" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <p></p><p>In 2004, ATP recognized the trend of deforestation and decided to scale up its planting in order to reverse the situation and mitigate the long-term consequences. The decline of Armenia’s forest cover is due to unsustainable logging, use of wood as fuel for cooking and heating, deforestation by the mining industry, and climate change.</p>
+
+                            <p>Desertification has been identified as a threat facing Armenia. Erosion, habitat loss, and diminished supplies of clean water are also consequences of low level of forest cover. It is imperative that we focus our long-term energies on the renewal of Armenia’s forests. The Forestry Program employs over 150 seasonal workers for planting.</p><p></p>
+                        </div>
+                    </div>
+                    <div class="row center-aligned-row">
+                        <div class="col-md-6">
+                            <p><strong>The Mirak Family Reforestation Nursery</strong><br>
+                                <br>
+                                To launch the forestry program, in conjunction with support from the Mirak Family, ATP established a reforestation nursery in Margahovit Village in 2005, dedicated to producing seedlings for forest sites in Northern Armenia. This nursery has enabled ATP to accelerate its experimentation and cultivation, and attain a higher-than-global-average tree survival rate.<br>
+                                <br>
+                                &nbsp;
+                            </p><ul>
+                                <li>200,000 seedlings harvested annually</li>
+                                <li>500,000 trees under various stages of cultivation</li>
+                                <li>Employs 16 full-time workers, including a forester, a monitor, and a GIS specialist.</li>
+                            </ul><p></p>
+                            <a href="{{ path('mirak',{ 'lang': app.request.locale }) }}"">
+                                <button>
+                                    See the Mirak Nursery in action
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mirak-family-nursery">
+                                <div class="title-and-play-button-wrapper">
+
+                                </div>
+                            </div>
+                            <div class="modal fade" id="mirak_family_nursery" tabindex="-1" role="dialog" aria-labelledby="mirak_family_nursery" aria-hidden="true">
+                                <div class="modal-dialogg">
+                                    <div class="modal-contentt">
+                                        <div class="modal-body">
+                                            <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <div class="video-container">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/knYkkK2LHbI" frameborder="0" allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="community-third">
+                <div class="container center-aligned-row">
+                    <div class="tree-survival-content-wrapper">
+                        <div>
+                            <img src="../uploads/images/forestry-article-two.png" alt="">
+                        </div>
+                        <div>
+                            <h5></h5><h5>Site Selection and Tree Survival</h5>
+                            <p></p><p>Our Forestry Department carefully selects sites for forest planting based upon several criteria:</p>
+                            <ul>
+                                <li>Quality of the soil</li>
+                                <li>Geographic position and elevation</li>
+                                <li>Land not in use for other purposes </li>
+                                <li>Level of commitment from the local community to protect the trees</li>
+                            </ul>
+
+                            <p>Through careful experimentation and a focus on indigenous propagation, ATP has achieved a survival rate of 60%+ — well above the global average. The high survival rate is ensured by taking several critical steps:</p>
+
+                            <p> - Concrete fencing in new areas to protect from livestock grazing <br>
+                                - Landscape maintenance in first 2-3 years to protect young seedlings from being overcrowded by grass <br>
+                                - Monitoring of the sites throughout the year (in perpetuity)
+                            </p><p></p>
+                            <a href="{{ path('tree',{ 'lang': app.request.locale }) }}">
+                                <button>Learn More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="community-second">
+                <div class="container">
+                    <div class="row center-aligned-row">
+                        <div class="col-md-6">
+                            <h4></h4><h4>Wildfire Precautions and Creating Awareness</h4>
+                            <p>
+                                ATP takes preventative measures against fire hazards and uses prescribed burning in some of its forestry sites to ensure fires don’t start or spread. Before and after plantings,
+                                weeding and cutting grass are also part of the methods used to prevent fires. Forestry also takes an educational approach and raises awareness by holding discussions with community members – including
+                                hired seasonal workers – against the practice of burning fields, which farmers erroneously believe enriches soil. Due to the lack of control of this practice,
+                                wildfires can spread to nearby areas and ultimately, forests, where it can create a significant amount of damage.
+                            </p>
+                            <a href="{{ path('tchalo',{ 'lang': app.request.locale }) }}">
+                                <button>Learn about Fire Safety in Armenia</button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../uploads/images/forestry-article-three.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row center-aligned-row">
+                        <div class="col-md-6">
+                            <img src="../uploads/images/bilezikian.jpg" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <h4></h4><h4>Bilezikian Greenhouse in Margahovit</h4>
+                            <p>In 2019 ATP will dedicate a new experimental greenhouse in Margahovit, sponsored by the Bilezikian family in memory of Charles Bilezikian.</p>
+
+                            <p>This newly constructed greenhouse will house containers essential for new tree growth. The containers will enable us to grow healthier trees, increasing tree survival rate. The greenhouse has the capacity to produce around 30,000 seedlings annually on average. The facility also includes an outdoor classroom for visitors.</p>
+
+                            <p>The Bilezikian building will house a forest laboratory where ATP can further experiment with and test seed quality. The second floor will serve as a lodging where tourists can spend the night.</p>
+                        </div>
+                    </div>
+                    <div class="row center-aligned-row">
+                        <div class="col-md-6">
+                            <h4></h4><h4>Cooperation with HayAntar</h4>
+                            <p>Finding unused and suitable land for plantings is one of the core issues in carrying out forestry projects. After signing an Memorandum of Understanding with HayAntar (Armenia’s government forestry agency) in 2017, HayAntar has been providing ATP land for forestation projects. ATP and HayAntar will also carry out coppicing projects together in Lori region. After coppicing activities, the excess wood will be provided to local families for fuel and the excess branches turned into mulch, which will be used to nourish and maintain seedlings in ATP’s forests and the Mirak Nursery..</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../uploads/images/forestry-article-five.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="community-last-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>FEATURED CONTENT</h4>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="first-content-video" style="background: url('../uploads/images/featured-content-video-bck.png') no-repeat; background-size: cover; height: 400px;">
+                                <div class="support-families">
+                                    <div class="title-and-play-button-wrapper">
+                                        <h3>How Armenian Villagers Are Using Trees <br>To Support Their Families</h3>
+                                        <a data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="how_planting_works" tabindex="-1" role="dialog" aria-labelledby="how_planting_works" aria-hidden="true">
+                                    <div class="modal-dialogg">
+                                        <div class="modal-contentt">
+                                            <div class="modal-body">
+                                                <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <div class="video-container">
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IDHxpsufSTA" frameborder="0" allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="second-content" style="background: url('../uploads/images/photo.png') no-repeat; background-size: cover; height: 400px;">
+                                <h3>ATP Continues to Make a Difference on the Landscape of Armenia, One Tree at a Time</h3>
+                                <p>05 Dec, 2018</p>
+                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 19 }) }}">Read More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
+                                <h3>Help us Reverse Desertification in Armenia</h3>
+                                <a href="{{ path('donation',{ 'lang': app.request.locale }) }}">
+                                    <button> Donate</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+        <!--Footer Section-->
+
+        <section class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                        <p class="hashtag">#GetRooted</p>
+                        <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                        <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                        <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                        <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+{% endblock %}

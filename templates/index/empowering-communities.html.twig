@@ -1,0 +1,258 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Be An Ambassador</title>{% endblock %}
+{% block body %}
+
+    <section class="empowering-communities-top-content secondary-pages-top-content" style="background:url('../uploads/images/empcomm.jpg') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-6">
+                    <h1>EMPOWERING COMMUNITIES IN ARMENIA</h1>
+                </div>
+                <div class="col-sm-6 cover-text">
+                    <p>Armenia Tree Project has reached over <br><span>27,500 students</span> and teachers in over<span> 300 </span> <br>schools in Armenia through its classes and<br> programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="empowering-communities-page-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 col-xs-12 text-center">
+                        <h5>Our Environmental Education Approach</h5>
+
+                        <p>In Armenia, changing behavior and attitudes toward the environment begins with the School Teacher as the gateway, then makes its way outside the classroom through projects that change the entire community.</p>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="container">
+                <div class="empowering-communities-middle-content-wrapper hidden-xs">
+                    <div class="first-column-content">
+                        <div>
+                            <img class="path-icon hidden-xs" src="../img/top-right-path.svg" alt="">
+                            <img class="path-icon visible-xs" src="../img/mobile-arrow-path.svg" alt="">
+                        </div>
+                        <div class="text-center">
+                            <img src="../uploads/images/eco-clubs.png" alt="">
+                            <h4>Eco-Clubs and Camps</h4>
+                            <p>The most serious students will give birth to Eco-Clubs that will continue launching projects in their communities</p>
+                        </div>
+                        <div>
+                            <img class="path-icon hidden-xs" src="../img/bottom-right-path.svg" alt="">
+                            <img class="path-icon visible-xs" src="../img/mobile-arrow-path.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="second-column-content">
+                        <div class="text-center">
+                            <img src="../uploads/images/Teacher training circle.jpg" alt="">
+                            <h4>Teacher Training</h4>
+                            <p>ATP initiated teacher training in 2005 based upon the “Plant an Idea, Plant a Tree” teacher’s manual. ATP has witnessed increasing evidence that the teacher is a major catalyst in changing attitudes and behaviors, and strengthening a community’s capacity for growth.</p>
+                            <a href="{{ path('enveducation', {'lang': app.request.locale}) }}">
+                                <button>                                                Download Sample Lessons
+                                </button>
+                            </a>
+                        </div>
+                        <div class="text-center">
+                            <img src="../uploads/images/Capacity building.jpg" alt="">
+                            <h4>Capacity Building and
+                                Community Strengthening</h4>
+                            <p>Student-led environmental projects help the school and community become more effective at achieving environmental goals.</p>
+                        </div>
+                    </div>
+                    <div class="third-column-content">
+                        <div>
+                            <img class="path-icon hidden-xs" src="../img/top-left-path.svg" alt="">
+                            <img class="path-icon visible-xs" src="../img/mobile-arrow-path.svg" alt="">
+                        </div>
+                        <div class="text-center">
+                            <img src="../uploads/images/Classes and stud. proj.jpg" alt="">
+                            <h4>Classes and Student Projects</h4>
+                            <p>With guidance from informed and trained teachers, student groups engage in projects and research.</p>
+                            <a href="{{ path('ohanian', {'lang': app.request.locale}) }}">
+                                <button>                                                Learn more about our Ohanian Educational Centers
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <img class="path-icon hidden-xs" src="../img/bottom-left-path.svg" alt="">
+                            <img class="path-icon visible-xs" src="../img/mobile-arrow-path.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="empowering-communities-middle-content-wrapper visible-xs">
+                    <div class="text-center">
+                        <img src="../uploads/images/eco-clubs.png" alt="">
+                        <h4>Eco-Clubs and Camps</h4>
+                        <p>The most serious students will give birth to Eco-Clubs that will continue launching projects in their communities</p>
+                        <img class="path-icon" src="../img/mobile-arrow-path.svg" alt="">
+                    </div>
+                    <div class="text-center">
+                        <img src="../uploads/images/Teacher training circle.jpg" alt="">
+                        <h4>Teacher Training</h4>
+                        <p>ATP initiated teacher training in 2005 based upon the “Plant an Idea, Plant a Tree” teacher’s manual. ATP has witnessed increasing evidence that the teacher is a major catalyst in changing attitudes and behaviors, and strengthening a community’s capacity for growth.</p>
+                        <a href="{{ path('enveducation', {'lang': app.request.locale}) }}">
+                            <button>                                            Download Sample Lessons
+                            </button>
+                        </a>
+                        <img class="path-icon" src="../img/mobile-arrow-path.svg" alt="">
+                    </div>
+                    <div class="text-center">
+                        <img src="../uploads/images/Capacity building.jpg" alt="">
+                        <h4>Capacity Building and
+                            Community Strengthening</h4>
+                        <p>Student-led environmental projects help the school and community become more effective at achieving environmental goals.</p>
+                        <img class="path-icon" src="../img/mobile-arrow-path.svg" alt="">
+                    </div>
+                    <div class="text-center">
+                        <img src="../uploads/images/Classes and stud. proj.jpg" alt="">
+                        <h4>Classes and Student Projects</h4>
+                        <p>With guidance from informed and trained teachers, student groups engage in projects and research.</p>
+                        <a href="{{ path('ohanian', {'lang': app.request.locale}) }}">
+                            <button>                                            Learn more about our Ohanian Educational Centers
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="community-last-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>FEATURED CONTENT</h4>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="first-content" style="background: url('../uploads/images/article-18.png') no-repeat; background-size: cover; height: 400px;">
+                            <h3>Armenia Tree Project and Paros Foundation Celebrate Partnership in Rind Village</h3>
+                            <p>13 Jun, 2018</p>
+                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 17 }) }}">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="second-content" style="background: url('../uploads/images/article-19.png') no-repeat; background-size: cover; height: 400px;">
+                            <h3>ATP Launches New Tree Nursery in Chiva, the Gateway to Armenia’s Burgeoning Wine...</h3>
+                            <p>26 Oct, 2018</p>
+                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 26 }) }}">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
+                            <h3>Help us increase our planting efforts</h3>
+                            <a href="{{ path('donation', {'lang': app.request.locale}) }}">
+                                <button> Donate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

@@ -1,0 +1,415 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Be An Ambassador</title>{% endblock %}
+{% block body %}
+
+    <section class="ambassador-top-content secondary-pages-top-content" style="background:url('../uploads/images/ambassador-cover.jpg') no-repeat; background-size:cover;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-6">
+                    <h1>BE AN AMBASSADOR</h1>
+                </div>
+                <div class="col-sm-6 cover-text">
+                    <p>People from all around the world raise<br> funds throughout the year <span>to help protect</span><br> the environment of Armenia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if done is defined %}
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content" style="height: 80px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thank you! Your message has been sent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div class="ambassador-page-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-md-6 col-xs-12 left-aligned">
+                        <p>Supporters from all over the world have come forward to help sustain Armenia’s environment and empower its people to protect their land. Our Ambassadors want to improve the environmental conditions in Armenia and believe in raising funds to help ATP achieve its mission. Join our team and help us garner more support to protect Armenia’s natural ecosystem.</p>
+                        <ul>
+                            <li>Host a fundraiser to inform and excite your local community about ATP’s initiatives</li>
+                            <li>Garner support from friends and family and sponsor a Community Planting site or Backyard Nursery</li>
+                            <li>Make your birthday an ATP fundraiser</li>
+                            <li>Connect Building Bridges educational curriculum to your local school and youth group</li>
+                            <li>Represent ATP at bazaars, picnics or other events in your community</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="meet-armen-video" style="background: linear-gradient(
+                                rgba(0, 0, 0, 0.2),
+                                rgba(0, 0, 0, 0.2)
+                                ), url('../uploads/images/Anna.jpg') no-repeat; background-size:cover; height: 335px; position: relative;">
+                            <div class="title-and-play-button-wrapper">
+                                <h3>Meet Anna Astvatsaturian</h3>
+                                <a data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="how_planting_works" tabindex="-1" role="dialog" aria-labelledby="how_planting_works" aria-hidden="true">
+                            <div class="modal-dialogg">
+                                <div class="modal-contentt">
+                                    <div class="modal-body">
+                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/_AsRC1YpOMQ" frameborder="0" allowfullscreen=""></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="become-ambassador-btn" data-toggle="modal" data-target="#become_ambassador">Become an Ambassador Today!</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="become_ambassador" tabindex="-1" role="dialog" aria-labelledby="become_ambassador">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button style="color: #000000; opacity: 1; background: transparent; font-size: 24px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="become-ambassador-form">
+                                            <h4 class="text-center">THANK YOU FOR YOUR INTEREST IN BECOMING AN AMBASSADOR</h4>
+                                            <p class="text-center">Interested in learning more about how to become an Ambassador for ATP, Sign up here and someone will reach out to you soon.</p>
+                                            {{ form_start(form) }}
+                                            <form action="">
+                                                <div class="two-inputs-wrapper">
+                                                    <div>
+                                                        <h6>FIRST NAME *</h6>
+                                                        {{ form_widget(form.firstName, { 'attr': {'placeholder': 'Your Name'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.firstName) }} </div>
+                                                    </div>
+                                                    <div>
+                                                        <h6>LAST NAME *</h6>
+                                                        {{ form_widget(form.lastName, { 'attr': {'placeholder': 'Your Last Name'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.lastName) }} </div>
+                                                    </div>
+                                                </div>
+                                                <div class="two-inputs-wrapper">
+                                                    <div>
+                                                        <h6>CITY *</h6>
+                                                        {{ form_widget(form.city, { 'attr': {'placeholder': 'Your City'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.city) }} </div>
+                                                    </div>
+                                                    <div>
+                                                        <h6>E-MAIL *</h6>
+                                                        {{ form_widget(form.email, { 'attr': {'placeholder': 'Your E-mail Address'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.email) }} </div>
+                                                    </div>
+                                                </div>
+                                                <div class="two-inputs-wrapper">
+                                                    <div>
+                                                        <h6>ADDRESS *</h6>
+                                                        {{ form_widget(form.address, { 'attr': {'placeholder': 'Your Address'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.address) }} </div>
+                                                    </div>
+                                                    <div>
+                                                        <h6>PHONE *</h6>
+                                                        {{ form_widget(form.phone, { 'attr': {'placeholder': 'Phone Number'|trans}}) }}
+                                                        <div style="color: red;">{{ form_errors(form.phone) }} </div>
+                                                    </div>
+                                                </div>
+                                                <h6>WHY ARE YOU INTERESTED IN SUPPORT THE MISSION ATP?</h6>
+                                                {{ form_widget(form.message, { 'attr': {'placeholder': 'Your Message'|trans}}) }}
+                                                <div style="color: red;">{{ form_errors(form.message) }} </div>
+                                                <h6>COMMENTS</h6>
+                                                {{ form_widget(form.comments, { 'attr': {'placeholder': 'Your Message'|trans}}) }}
+                                                <div style="color: red;">{{ form_errors(form.comments) }} </div>
+                                                <div class="text-center">
+                                                    {{ form_widget(form.send, { 'attr': {'label': "Become an Ambassador Today!", 'style': "background-color: #777777", 'disabled': 'disabled'}}) }}
+                                                </div>
+                                            </form>
+                                            {{ form_end(form) }}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="our-ambassadors">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>MEET OUR ATP AMBASSADORS</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/armen-poladian.png" alt="">
+                            </div>
+                            <div>
+                                Armen Poladian<br>
+                                Cambridge Ontario
+                                <p class="ambassador-speech">
+                                    “I was beyond proud and humbled to have inspired a group of people to share my passion about ATP.”
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            In 2016, Armen dedicated his 25th birthday to ATP, asking friends and family to donate toward his goal of raising $2,000 to support the planting of 100 trees in Armenia. Armen met and surpassed his goal!
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/stephan-and-susan.png" alt="">
+                            </div>
+                            <div>
+                                Stepan and Susan Piligian<br>
+                                Worcester, MA
+                                <p class="ambassador-speech">
+                                    “One of the most beloved aspects of ATP is that it supports the most fundamental expression of patriotism: the protection of the land, water and air we have been blessed with.”
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Stepan and Susan have devoted significant funds towards greening Payrur Sevak Village
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/sevan-and-hovig.png" alt="">
+                            </div>
+                            <div>
+                                Sevan and Hovig Deirbadrossian<br>
+                                Glendale, CA
+                                <p class="ambassador-speech">
+                                    “We got involved because ATP’s mission is different. To plant trees and provide jobs in a country that suffered all types of economic, natural and political disasters is impressive.”
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            The entire Dirbadrossian family has volunteered with ATP for years and their son Peter starred in the 2014 ATP film Something New.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/Steve-Migridichian.png" alt="">
+                            </div>
+                            <div>
+                                Steve Migridichian<br>
+                                Worcester, MA
+                                <p class="ambassador-speech">
+                                    “We enthusiastically support The Armenia Tree Project because the global benefits are multi-faceted; donors contribute to the economic, social and environmental fiber and prosperity of Armenia.”
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Steve and his wife Debbie are longtime supporters of ATP and have been instrumental in outreach efforts in the Worcester, MA area. They’ve opened their home for a fundraising house party and invited ATP to present to community organizations they participate in.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/Anna Astvatsaturian Turcotte.jpeg" alt="">
+                            </div>
+                            <div>
+                                Anna Astvatsaturian Turcotte<br>
+                                Westbrook, ME
+                                <p class="ambassador-speech">
+                                    “Of all my humanitarian projects, this is the most meaningful to me. Together with ATP, I've&nbsp;launched a campaign to celebrate the survival and achievements of the Armenians from Azerbaijan. We will be planting a two-hectare forest in Talin, Armenia to celebrate our community and memorialize the killed and the bulldozed over graves of our loved ones."
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Community activist Anna Astvatsaturian Turcotte pledged to raise $15,000 for this project. Anna is asking Armenians worldwide to donate in memory of the martyrs, in honor of friends or family who fled Azerbaijan, and to remember the history of the talented, successful, and often forgotten Armenians of Azerbaijan. The forest will be named in honor of the Armenians from Azerbaijan, in recognition of the 30th anniversary of the anti-Armenian pogroms in Baku.&nbsp;
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="photo-and-text-wrapper">
+                            <div>
+                                <img src="../uploads/images/IMG_2459-1.jpeg" alt="">
+                            </div>
+                            <div>
+                                Paul&nbsp;Arakelyan<br>
+                                Los Angeles, CA
+                                <p class="ambassador-speech">
+                                    “Regardless of how tasty a fruit is or how popular it becomes, it owes it to its roots. Know your roots and respect them.”
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Paul has donated $10,000 in support of establishing a Legacy Forest in Armavir Village. It is his wish to inspire other people to join him and actively participate in ATP’s tree planting efforts.&nbsp; He has also generously offered to plant a tree for every person that signs on with a policy at Legacy Partners Insurance and Finance Services, LLC.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <a href="{{ path('bndonate',{ 'lang': app.request.locale }) }}">
+                        <button class="donate-btn">Donate</button>
+                    </a>
+                </div>
+            </div></section>
+
+        <section class="community-last-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>FEATURED CONTENT</h4>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="first-content" style="background: url('../uploads/images/article-12.png') no-repeat; background-size: cover; height: 400px;">
+                            <h3>
+                                Meet Our Ambassador
+                            </h3>
+                            <p>24 Jun, 2018</p>
+                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 13 }) }}">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="second-content" style="background: url('../uploads/images/article-19.png') no-repeat; background-size: cover; height: 400px;">
+                            <h3>
+                                ATP Launches New Tree Nursery in Chiva, the Gateway to Armenia’s Burgeoning Wine...
+                            </h3>
+                            <p>26 Oct, 2018</p>
+                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 23 }) }}">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
+                            <h3>
+                                Help us increase our planting efforts
+                            </h3>
+                            <a href="{{ path('donation',{ 'lang': app.request.locale }) }}">
+                                <button> Donate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
+    <script>
+        $('form').on('keyup change paste', 'input, select, textarea', function(){
+            if($('#form_firstName').val() && $('#form_lastName').val() && $('#form_city').val() && $('#form_email').val() && $('#form_address').val() && $('#form_phone').val() && $('#form_message').val()){
+                $('#form_send').css("background-color", "#6FD054");
+                $('#form_send').removeAttr("disabled");
+            }else{
+                $('#form_send').css("background-color", "#777777");
+                $('#form_send').attr({"disabled": "disabled"});
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script>
+
+
+    </body>
+    </html>
+    {#<hr>#}
+    {#<table>#}
+    {#{% for object in pager.currentPageResults %}#}
+    {#<tr>#}
+    {#<td>{{ object.Title }}</td>#}
+    {#<td>{{ object.Text }}</td>#}
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+    {#{% if pager.haveToPaginate %}#}
+    {#{{ pagerfanta(pager) }}#}
+    {#{% endif %}#}
+    {#<hr>#}
+{% endblock %}

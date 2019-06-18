@@ -1,0 +1,213 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Education and awarness</title>{% endblock %}
+
+    {% block body %}
+
+        <section class="education-and-awareness secondary-pages-top-content" style="background:url('../uploads/images/Margahovit Eco Camp-ed.aw.cover.jpg') no-repeat; background-size:cover;">
+            <div class="container">
+                <div class="row center-aligned-row">
+                    <div class="col-sm-6">
+                        <h1>EDUCATION & AWARENESS</h1>
+                    </div>
+                    <div class="col-sm-6 cover-text">
+                        <p>Educating<span> thousands of students</span> every<br> year in schools within Armenia and around <br>the world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="education-main-content-wrapper">
+            <section class="community-second">
+                <div class="visible-xs visible-sm">
+                    <div class="mobile-subdropdown-wrapper ">
+                        <a href="{{ path('bridges',{ 'lang': app.request.locale }) }}">The Building Bridges Initiative</a>
+                        <a href="{{ path('empowering',{ 'lang': app.request.locale }) }}">Empowering Communities in Armenia</a>
+                        <a href="{{ path('ohanian',{ 'lang': app.request.locale }) }}">Ohanian Educational Centers</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row center-aligned-row">
+                        <div class="col-sm-6 col-xs-12">
+                            <p>Armenia Tree Project weaves education and awareness through all of its programs, fostering the next generation of empowered environmental stewards. Whether they are taught inside Armenia or in schools around the world, ATP’s interactive programs aim to raise the environmental consciousness of each and every person in the hopes that responsible behavior and sustainable practices will become the imperative for all.</p>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <img src="../img/edaw.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="community-third">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="content-title text-center">RAISING THE GLOBAL ARMENIAN CITIZEN</h4>
+                        </div>
+                    </div>
+                    <div class="row focus-items">
+                        <div class="col-md-6">
+                            <img src="../uploads/images/PHOTO1.png" alt="">
+                        </div>
+                        <div class="col-md-6 info-text-wrapper">
+                            <h4>School</h4>
+                            <p>Children spend most of their day in the classroom. Making Environmental Education part of curriculum raises its level of importance for both teachers and students.</p>
+                            <a href="{{ path('enveducation', {'lang': app.request.locale}) }}">
+                                <button>                                            Download Sample Lessons In English and Armenian
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row focus-items">
+                        <div class="col-md-6 left-aligned">
+                            <h4>Community</h4>
+                            <p>Our collective consciousness is what drives large scale change and social impact. We rely upon our community to give us livelihood, support and grounding for a healthy and safe living environment.</p>
+                            <a href="{{ path('ohanian', {'lang': app.request.locale}) }}">
+                                <button>                                            Learn more about Ohanian Centers
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../uploads/images/PHOTO3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row focus-items">
+                        <div class="col-md-6">
+                            <img src="../uploads/images/ed.aw. family image.jpg" alt="">
+                        </div>
+                        <div class="col-md-6 info-text-wrapper">
+                            <h4>Family</h4>
+                            <p>When parents and children make commitments together the impact is exponential. Making the environment a part of your family’s value system is fundamental to bringing positive and long term behavioral change.</p>
+                            <a href="{{ path('interactive', {'lang': app.request.locale}) }}">
+                                <button>                                            Check out Interactive Learning
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row focus-items">
+                        <div class="col-md-6">
+                            <h4>Building Bridges Initiative</h4>
+                            <p>The Building Bridges Initiative connects young people throughout the world with likeminded environmentalists within Armenia to create friendships and solutions for solving today’s environmental problems.</p>
+                            <a href="{{ path('bridges', {'lang': app.request.locale}) }}">
+                                <button>                                                Learn More
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Empowering Communities in Armenia</h4>
+                            <p>Armenia Tree Project knows how essential community life is to the health and strength of the Armenian nation. With no environmental education in the public schools of Armenia, ATP plays a leadership role in making environmental awareness a priority.</p>
+                            <a href="{{ path('empowering', {'lang': app.request.locale}) }}">
+                                <button>                                                Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="community-last-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>FEATURED CONTENT</h4>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="first-content" style="background: url('../uploads/images/article-1.png') no-repeat; background-size: cover; height: 400px;">
+                                <h3>Building Bridges: St. Stephen’s Armenian Elementary School of Watertown and Avedisian School of Yerevan</h3>
+                                <p>01 Sep, 2018</p>
+                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 21 }) }}">Read More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="second-content" style="background: url('../uploads/images/article-2.png') no-repeat; background-size: cover; height: 400px;">
+                                <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>
+                                <p>05 Feb, 2018</p>
+                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
+                                <h3>Call for Annual Tree Planting in Goris</h3>
+                                <button href="/en/donation"> Donate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+        <!--Footer Section-->
+
+        <section class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                        <p class="hashtag">#GetRooted</p>
+                        <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                        <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                        <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                        <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+{% endblock %}

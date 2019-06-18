@@ -1,0 +1,261 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Armenia Tree Project - Impact</title>{% endblock %}
+{% block body %}
+    <section class="impact secondary-pages-top-content" style="background:url('../uploads/images/header-impact.jpg') no-repeat; background-size:cover; background-position: 100% 40%;">
+        <div class="container">
+            <div class="row center-aligned-row">
+                <div class="col-sm-6">
+                    <h1>{% trans %}IMPACT{% endtrans %}</h1>
+                </div>
+                <div class="col-sm-6 cover-text">
+                    <p>{% trans %}ATP’s model is thoughtful and it works<br>
+                        — the difference doesn’t last a year,<br>
+                        it lasts a <span>lifetime.<span></span></span>{% endtrans %}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="impact-main-content-wrapper">
+        <section class="community-second">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10 col-xs-12 text-center">
+                        <p>{% trans %}Armenia Tree Project’s operational model is multi-dimensional and has impact built into its <br>programs. By working within a framework focused on Sustain, Empower, and<br> Teach, ATP is able to protect water resources, create better living habits, sustain<br> communities and families, and empower individuals to make positive change.{% endtrans %}</p>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--Impact info graph section-->
+        <section class="impact-info-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-xs-12">
+                        <div class="impact-info-graph hidden-xs">
+                            <div class="single-content-related-info" id="teach_info">
+                                <div class="text-right">
+                                    <img class="close-icon" src="../img/close.png" srcset="../img/close@2x.png" alt="">
+                                </div>
+                                <h1>{% trans %}TEACH{% endtrans %}</h1>
+                                <h5>{% trans %}Conscious Citizenship{% endtrans %}</h5>
+                                <p>{% trans %}ATP weaves education and awareness
+                                    through each of its programs and initiatives,
+                                    ensuring that Armenian citizens are both
+                                    individually and collectively empowered to be
+                                    stewards of a healthy and sustainable
+                                    environment.{% endtrans %}
+                                </p>
+                            </div>
+                            <div class="single-content-related-info" id="sustain_info">
+                                <div class="text-right">
+                                    <img class="close-icon" src="../img/close.png" srcset="../img/close@2x.png" alt="">
+                                </div>
+                                <h1>{% trans %}SUSTAIN{% endtrans %}</h1>
+                                <h5>{% trans %}Science as the Foundation{% endtrans %}</h5>
+                                <p>{% trans %}With 25 years of experience and scientific
+                                    research, ATP has developed state of the art
+                                    propagation, planting, maintenance and
+                                    monitoring systems that optimize tree
+                                    growth and sustainability within the 11
+                                    microclimates in Armenia.{% endtrans %}
+                                </p>
+                            </div>
+                            <div class="single-content-related-info" id="empower_info">
+                                <div class="text-right">
+                                    <img class="close-icon" src="../img/close.png" srcset="../img/close@2x.png" alt="">
+                                </div>
+                                <h1>{% trans %}EMPOWER{% endtrans %}</h1>
+                                <h5>{% trans %}People Can Enact Change{% endtrans %}</h5>
+                                <p>{% trans %}As a major employer in Armenia, ATP has
+                                    helped dozens of families attain selfsufficiency
+                                    by offering careers, jobs, and
+                                    innovative programs that strengthen village
+                                    communities while increasing economic
+                                    independence.{% endtrans %}
+                                </p>
+                            </div>
+                            <div class="impact-single-content-wrapper">
+                                <div id="teach">
+                                    <h2>{% trans %}Teach{% endtrans %}</h2>
+                                </div>
+                                <div id="sustain">
+                                    <h2>{% trans %}Sustain{% endtrans %}</h2>
+                                </div>
+                                <div id="empower">
+                                    <h2>{% trans %}Empower{% endtrans %}</h2>
+                                </div>
+                                <div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="impact-info-graph-mobile visible-xs text-center">
+                            <img src="../img/info-m.png" srcset="../img/info-m@2x.png 2x" alt="">
+                            <h1>{% trans %}TEACH{% endtrans %}</h1>
+                            <h5>{% trans %}Conscious Citizenship{% endtrans %}</h5>
+                            <p>{% trans %}ATP weaves education and awareness
+                                through each of its programs and initiatives,
+                                ensuring that Armenian citizens are both
+                                individually and collectively empowered to be
+                                stewards of a healthy and sustainable
+                                environment.{% endtrans %}
+                            </p>
+                            <h1>{% trans %}SUSTAIN{% endtrans %}</h1>
+                            <h5>{% trans %}Science as the Foundation{% endtrans %}</h5>
+                            <p>{% trans %}With 25 years of experience and scientific
+                                research, ATP has developed state of the art
+                                propagation, planting, maintenance and
+                                monitoring systems that optimize tree
+                                growth and sustainability within the 11
+                                microclimates in Armenia.{% endtrans %}
+                            </p>
+                            <h1>{% trans %}EMPOWER{% endtrans %}</h1>
+                            <h5>{% trans %}People Can Enact Change{% endtrans %}</h5>
+                            <p>{% trans %}As a major employer in Armenia, ATP has
+                                helped dozens of families attain selfsufficiency
+                                by offering careers, jobs, and
+                                innovative programs that strengthen village
+                                communities while increasing economic
+                                independence.{% endtrans %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12 impact-info-points">
+                        <ul>
+                            <li>{% trans %}Protecting <span>water</span> resources{% endtrans %}</li>
+                            <li>{% trans %}Creating better <span>living</span> habits{% endtrans %}</li>
+                            <li>{% trans %}Sustaining <span>communities and families</span>{% endtrans %}</li>
+                            <li>{% trans %}Empowering <span>individuals</span>{% endtrans %}</li>
+                        </ul>
+                        <a href="{{ path('team',{ 'lang': app.request.locale }) }}">
+                            <button>{% trans %}OUR TEAM{% endtrans %}</button>
+                        </a>
+                        <a href="{{ path('mission',{ 'lang': app.request.locale }) }}">
+                            <button>{% trans %}OUR MISSION{% endtrans %}</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!--Planted trees info section-->
+
+    <section class="planting-info-wrapper">
+        <div class="container">
+            <h3 class="text-center">{% trans %}ARMENIA TREE PROJECT IS FOCUSED ON RESULTS NOW MORE THAN EVER{% endtrans %}</h3>
+            <h4 class="text-center">{% trans %}We’re proud of how far we have come and we cannot wait to do more!{% endtrans %}</h4>
+            <div class="row">
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>{% trans %}We’ve planted over <span>5.5</span> million trees over<br>the past <span>25</span> years{% endtrans %}</p>
+                    <img src="../uploads/images/plant-graph.png" alt="">
+                </div>
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>{% trans %}We plant in <span>every region</span> of Armenia and Artsakh.<br> We’re greening everywhere…{% endtrans %}</p>
+                    <a href="where">
+                        <img src="../uploads/images/map.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-employment-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>{% trans %}Over <span>80</span> people are employed by ATP full time and <br> between <span>150-200</span> seasonally: over 35% are women{% endtrans %}</p>
+                    <img src="../uploads/images/ppl.png" alt="">
+                </div>
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>{% trans %}Over <span>90</span> churches and cathedrals are now <br> green thanks to ATP{% endtrans %}</p>
+                    <img src="../uploads/images/church.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="planting-info-wrapper tree-survival-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>ATP’s tree survival rate is <span>70%</span> in community areas <br> and <span>65%</span> in forestry – that’s 10% higher than the<br> international average.</p>
+                    <img src="../uploads/images/survival-rate.png" alt="">
+                </div>
+                <div class="col-lg-6 col-xs-12 text-center">
+                    <p>More than <span>23,000</span> students have been trained and <br> over <span>200</span> schools use our environmental <br> curriculum.</p>
+                    <img src="../uploads/images/classroom.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Footer Section-->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">Glossary</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                        </li><li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <ul>
+                        <li class="hidden">
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li class="hidden">
+                            <a href="#">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
+                    <p class="hashtag">#GetRooted</p>
+                    <a target="_blank" href="https://www.facebook.com/armeniatree">
+                        <img src="../img/facebook-logo.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
+                        <img src="../img/twitter-logo.svg" alt="twitter">
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
+                        <img src="../img/instagram-logo.svg" alt="instagram">
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
+                        <img src="../img/youtube.svg" alt="youtube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom Js Files-->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+{% endblock %}
