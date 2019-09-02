@@ -16,7 +16,6 @@
 
 
     {% if done is defined %}
-
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content" style="height: 80px;">
@@ -125,7 +124,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-right">
-                                                {{ form_widget(form.send, { 'attr': {'label': "Become Volunteer", 'style': "background-color: #777777", 'disabled': 'disabled'}}) }}
+                                                {{ form_widget(form.send, { 'attr': {'label': "Become Volunteer", 'style': "background-color: #777777"}}) }}
                                             </div>
                                         </form>
                                         {{ form_end(form) }}

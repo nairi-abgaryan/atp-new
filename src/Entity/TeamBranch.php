@@ -34,7 +34,7 @@ class TeamBranch
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\TeamBranchLang",
-     *     mappedBy="teamBranches",
+     *     mappedBy="teamBranch",
      *     cascade={"persist", "remove"},
      *     fetch="EAGER",
      *     orphanRemoval=true

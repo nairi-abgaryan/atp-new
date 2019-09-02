@@ -1,0 +1,34 @@
+<section class="bridges-interactive-secondary-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                {{ dump(app.request.get('_route')) }}
+                <ul class="secondary-navbar">
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'ecogames' ? 'active' }}" href="{{ path('ecogames') }}">EcoGames</a>
+                    </li>
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'bbmagazine' ? 'active' }}"href="{{ path('bbmagazine') }}">Magazines</a>
+                    </li>
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'videos' ? 'active' }}"href="{{ path('videos', {lang: app.request.locale}) }}">Videos</a>
+                    </li>
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'tchalo' ? 'active' }}" href="{{ path('tchalo', {lang: app.request.locale}) }}">Meet Tchalo!</a>
+                    </li>
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'coloring' ? 'active' }}" href="{{ path('coloring') }}">Coloring</a>
+                    </li>
+                    <li>
+                        <a class="{{ app.request.get('_route') == 'treevia' ? 'active' }}" href="{{ path('treevia') }}">Treevia!</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4 col-xs-12 text-right">
+                <a href="{{ path('interactive') }}">
+                    <img src="../img/bb-interactive.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

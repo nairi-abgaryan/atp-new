@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Certificate;
+use App\Entity\Team;
+use App\Entity\TeamBranch;
+use App\Form\Type\InterestType;
 use App\Manager\FeatureManager;
-use Pagerfanta\Exception\NotValidCurrentPageException;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Pagerfanta\Adapter\ArrayAdapter;
-use Pagerfanta\Pagerfanta;
 use Symfony\Component\Form\Extension\Core\Type;
 use App\Service\Eventbrite;
 use App\Service\MailService;
 use App\Entity\Donation;
-use App\Entity\Events;
 
 /**
  * @Route("/{lang}")
@@ -28,6 +28,11 @@ class IndexController extends AbstractController
     private $mailer;
 
     /**
+     * @var EntityManagerInterface $em
+     */
+    private $em;
+
+    /**
      * @var FeatureManager
      */
     private $featureManager;
@@ -36,16 +41,24 @@ class IndexController extends AbstractController
      * IndexController constructor.
      * @param MailService $mailer
      * @param FeatureManager $featureManager
+     * @param EntityManagerInterface $em
      */
-    public function __construct(MailService $mailer, FeatureManager $featureManager)
+    public function __construct
+    (
+        MailService $mailer,
+        FeatureManager $featureManager,
+        EntityManagerInterface $em
+    )
     {
         $this->mailer = $mailer;
         $this->featureManager = $featureManager;
+        $this->em = $em;
     }
 
     /**
      * @Route("/index", name="index")
-     * @return
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request)
     {
@@ -93,7 +106,11 @@ class IndexController extends AbstractController
      */
     public function backyardNurseries()
     {
-        return $this->render('index/backyard-nurseries.html.twig');
+        $feature = $this->featureManager->findBy();
+
+        return $this->render('index/backyard-nurseries.html.twig', [
+            "bottom" => $feature
+        ]);
     }
 
     /**
@@ -145,243 +162,6 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/donation", name="donation")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function donation(Request $request)
-    {
-        $form = $this->createFormBuilder()
-            ->add('type', Type\HiddenType::class, ['required' => true])
-            ->add('amount', Type\HiddenType::class, ['required' => true])
-            ->add('firstName', Type\TextType::class, ['required' => true])
-            ->add('lastName', Type\TextType::class, ['required' => true])
-            ->add('country', Type\HiddenType::class, ['required' => true])
-            ->add('city', Type\TextType::class, ['required' => true])
-            ->add('state', Type\HiddenType::class, ['required' => true])
-            ->add('code', Type\TextType::class, ['required' => true])
-            ->add('email', Type\EmailType::class, ['required' => true])
-            ->add('address', Type\TextType::class, ['required' => true])
-            ->add('phone', Type\TextType::class, ['required' => true])
-            ->add('employer', Type\TextType::class, ['required' => false])
-            ->add('comments', Type\TextareaType::class, ['required' => false])
-            ->add('certificate', Type\ChoiceType::class, array(
-                'choices'  => array(
-                    'No' => false,
-                    'Yes' => true,
-                )))
-            ->add('send', Type\SubmitType::class, ['label'=>'Next'])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-
-            if(!isset($data['amount'])){
-                return $this->render('index/donation.html.twig', [
-                    'form' => $form->createView(),
-                    'errorAmount' => true
-                ]);
-            }
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $donation = new Donation();
-            $donation->setFirstName($data['firstName']);
-            $donation->setLastName($data['lastName']);
-            $donation->setAmount($data['amount']);
-            $donation->setCountry($data['country']);
-            $donation->setCity($data['city']);
-            $donation->setState($data['state']);
-            $donation->setCode($data['code']);
-            $donation->setEmail($data['email']);
-            $donation->setAddress($data['address']);
-            $donation->setPhone($data['phone']);
-            $donation->setEmployer($data['employer']);
-            if($data['certificate'] == true){
-                $donation->setCertificate('Yes');
-            }elseif($data['certificate'] == false){
-                $donation->setCertificate('No');
-            }
-            $donation->setComments($data['comments']);
-            $donation->setType($data['type']);
-            $donation->setCreatedAt(new \DateTime('now'));
-
-            $entityManager->persist($donation);
-
-            $entityManager->flush();
-
-            if($data['certificate'] == true){
-                return $this->redirectToRoute('donateReviewCertificate', array('id' => $donation->getId()));
-            }elseif($data['certificate'] == false){
-                return $this->redirectToRoute('donateReview', array('id' => $donation->getId()));
-            }
-        }
-
-        return $this->render('index/donation.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-
-    /**
-     * @Route("/events", name="events")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function events(Request $request)
-    {
-        $request = Request::createFromGlobals();
-        $page = $request->query->get('page', 1);
-
-        $form = $this->createFormBuilder()
-            ->add('date', Type\TextType::class, ['required' => false])
-            ->add('title', Type\TextType::class, ['required' => false])
-            ->add('location', Type\TextType::class, ['required' => false])
-            ->add('send', Type\SubmitType::class, ['label'=>'FIND EVENTS'])
-            ->getForm();
-
-        $eventbrite = new Eventbrite();
-        $response = $eventbrite->getEvents();
-        $events = $response['events'];
-
-        if($events == null){
-            return $this->render('index/events.html.twig', [
-                'form' => $form->createView(),
-                'access' => false
-            ]);exit;
-        }
-
-        for($i=0; $i<count($events); $i++){
-            if($events[$i]['venue_id'] == null){continue;}
-            $venue = $eventbrite->getVenue($events[$i]['venue_id']);
-            $events[$i]['venue'] = $venue;
-        }
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-
-            $new_events = [];
-            foreach($events as $key => $event){
-
-                $event_time = $event['start']['utc'];
-                $date1 = strtotime($event_time);
-                if(isset($data['date'])) {
-                    $date2 = strtotime(explode(' to ', $data['date'])[0]);
-                    $date3 = strtotime(explode(' to ', $data['date'])[1]);
-                }
-
-                if(isset($data['title'])){
-                    if(strpos(strtolower ($event['name']['text']), strtolower ($data['title']) ) !== false) {
-                        if(isset($data['location'])) {
-                            if (strpos(strtolower($data['location']), strtolower($event['venue']['address']['city'])) !== false) {
-                                if(isset($data['date'])) {
-                                    if ($date1 > $date2 && $date1 < $date3)
-                                    {
-                                        $new_events[]= $event;
-                                        continue;
-                                    }else{continue;}
-                                }else{
-                                    $new_events[] = $event;
-                                    continue;
-                                }
-                            }else{
-                                continue;
-                            }
-                        }elseif(isset($data['date'])) {
-                            if ($date1 > $date2 && $date1 < $date3)
-                            {
-                                $new_events[]= $event;
-                                continue;
-                            }
-                        }else{
-                            $new_events[]= $event;
-                            continue;
-                        }
-                    }
-                    continue;
-                }elseif(isset($data['location'])){
-                    if (strpos(strtolower($data['location']), strtolower($event['venue']['address']['city'])) !== false) {
-                        if (isset($data['date'])) {
-                            if ($date1 > $date2 && $date1 < $date3) {
-                                $new_events[] = $event;
-                                continue;
-                            } else {
-                                continue;
-                            }
-                        } else {
-                            $new_events[] = $event;
-                            continue;
-                        }
-                    }else{continue;}
-                }elseif(isset($data['date'])){
-                    if ($date1 > $date2 && $date1 < $date3)
-                    {
-                        $new_events[]= $event;
-                        continue;
-                    }
-                }else{
-                    $new_events[] = $event;
-                }
-            }
-
-            $events = $new_events;
-        }
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $queryBuilder = $entityManager->createQueryBuilder();
-
-        $localEvents = $queryBuilder->select('e')
-            ->from(Events::class, 'e')
-            ->orderBy('e.startDate', 'DESC')
-            ->getQuery()->getArrayResult();
-
-        $oldEvents = $events;
-        foreach($localEvents as $item){
-            $new = [];
-            $new['name']['text'] = $item['title'];
-            $new['description']['text'] = $item['description'];
-            $new['start']['local'] = $item['startDate']->format('Y-m-d H:i:s');
-            $new['end']['local'] = $item['endDate']->format('Y-m-d H:i:s');
-            $new['logo']['url'] = '../uploads/images/'.$item['image'];
-            $new['place'] = $item['location'];
-
-            foreach($oldEvents as $elem){
-                $str1 = preg_replace('/\s+/', '', $elem['name']['text']);
-                $str2 = preg_replace('/\s+/', '', $item['title']);
-                if($str1 === $str2){
-                    $key = array_search($elem, $oldEvents);
-                    unset($events[$key]);
-                }
-            }
-            array_push($events, $new);
-        }
-
-
-        usort($events, function ($item1, $item2) {
-            return $item2['start']['local'] <=> $item1['start']['local'];
-        });
-
-        $adapter = new ArrayAdapter($events);
-        $pager =  new Pagerfanta($adapter);
-        $pager->setMaxPerPage(4);
-        try  {
-            $pager->setCurrentPage($page);
-        }
-        catch(NotValidCurrentPageException $e) {
-            throw new NotFoundHttpException('Illegal page');
-        }
-
-        return $this->render('index/events.html.twig', [
-            'form' => $form->createView(),
-            'events' => $events,
-            'pager' => $pager,
-            'access' => true,
-        ]);
-    }
-
-    /**
      * @Route("/where", name="where")
      */
     public function where()
@@ -404,57 +184,13 @@ class IndexController extends AbstractController
      */
     public function bridges(Request $request)
     {
-        $form = $this->createFormBuilder(null, array('csrf_protection' => false))
-            ->add('check1', Type\CheckboxType::class, [
-                'label'    => 'Teacher Kit',
-                'required' => false])
-            ->add('check2', Type\CheckboxType::class, [
-                'label'    => 'ATP Visit to My School',
-                'required' => false])
-            ->add('check3', Type\CheckboxType::class, [
-                'label'    => 'Bringing My School to Armenia',
-                'required' => false])
-            ->add('check4', Type\CheckboxType::class, [
-                'label'    => 'Volunteering with Building Bridges',
-                'required' => false])
-            ->add('firstName', Type\TextType::class)
-            ->add('lastName', Type\TextType::class)
-            ->add('school', Type\TextType::class)
-            ->add('title', Type\TextType::class)
-            ->add('grade', Type\TextType::class)
-            ->add('email', Type\EmailType::class)
-            ->add('address', Type\TextType::class, ['required' => false])
-            ->add('phone', Type\TextType::class, ['required' => false])
-            ->add('comments', Type\TextareaType::class, ['required' => false])
-            ->add('send', Type\SubmitType::class, ['label'=>'Submit'])
-            ->getForm();
-
+        $form = $this->createForm(InterestType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $interest = new Interest();
-            $interest->setCheck1($data['check1']);
-            $interest->setCheck2($data['check2']);
-            $interest->setCheck3($data['check3']);
-            $interest->setCheck4($data['check4']);
-            $interest->setFirstName($data['firstName']);
-            $interest->setLastName($data['lastName']);
-            $interest->setSchool($data['school']);
-            $interest->setTitle($data['title']);
-            $interest->setGrade($data['grade']);
-            $interest->setEmail($data['email']);
-            $interest->setAddress($data['address']);
-            $interest->setPhone($data['phone']);
-            $interest->setComments($data['comments']);
-
-            $entityManager->persist($interest);
-
-            $entityManager->flush();
+            $interest = $form->getData();
+            $this->em->persist($interest);
+            $this->em->flush();
 
             /** @var  $template */
             $template = $this->render("email/initiative.html.twig", [
@@ -467,7 +203,6 @@ class IndexController extends AbstractController
                 'form' => $form->createView(),
                 'done' => true
             ]);
-
         }
 
         return $this->render('index/bridges.html.twig', [
@@ -492,145 +227,6 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/volunteer", name="volunteer")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function volunteer(Request $request)
-    {
-        $form = $this->createFormBuilder(null, array('csrf_protection' => false))
-            ->add('check1', Type\CheckboxType::class, [
-                'label'    => 'Represent ATP in your community through events and festivals',
-                'required' => false])
-            ->add('check2', Type\CheckboxType::class, [
-                'label'    => 'Volunteer in our Woburn office for an hour or an afternoon',
-                'required' => false])
-            ->add('check3', Type\CheckboxType::class, [
-                'label'    => 'Organize an event for ATP at your church or in your community',
-                'required' => false])
-            ->add('check4', Type\CheckboxType::class, [
-                'label'    => 'Lend a hand at one of our many events throughout the US',
-                'required' => false])
-            ->add('check5', Type\CheckboxType::class, [
-                'label'    => 'Bring ATP’s Building Bridges curriculum to your school or youth group',
-                'required' => false])
-            ->add('firstName', Type\TextType::class)
-            ->add('lastName', Type\TextType::class)
-            ->add('city', Type\TextType::class)
-            ->add('email', Type\EmailType::class)
-            ->add('address', Type\TextType::class)
-            ->add('phone', Type\NumberType::class)
-            ->add('comments', Type\TextareaType::class, ['required' => false])
-            ->add('send', Type\SubmitType::class, ['label'=>'Become Volunteer'])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $volunteer = new Volunteer();
-            $volunteer->setCheck1($data['check1']);
-            $volunteer->setCheck2($data['check2']);
-            $volunteer->setCheck3($data['check3']);
-            $volunteer->setCheck4($data['check4']);
-            $volunteer->setCheck5($data['check5']);
-            $volunteer->setFirstName($data['firstName']);
-            $volunteer->setLastName($data['lastName']);
-            $volunteer->setCity($data['city']);
-            $volunteer->setEmail($data['email']);
-            $volunteer->setAddress($data['address']);
-            $volunteer->setPhone($data['phone']);
-            $volunteer->setComments($data['comments']);
-            $volunteer->setType('volunteer');
-
-            $entityManager->persist($volunteer);
-
-            $entityManager->flush();
-
-            /** @var  $template */
-            $template = $this->render("email/volunteer.html.twig", [
-                "volunteer" => $volunteer
-            ]);
-
-            $this->mailer->sendVolunteerEmail($template, 'info@armeniatree.org');
-
-            return $this->render('index/volunteer.html.twig', [
-                'form' => $form->createView(),
-                'done' => true
-            ]);
-
-        }
-
-        return $this->render('index/volunteer.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/ambassador", name="ambassador")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function ambassador(Request $request)
-    {
-        $form = $this->createFormBuilder(null, array('csrf_protection' => false))
-            ->add('firstName', Type\TextType::class)
-            ->add('lastName', Type\TextType::class)
-            ->add('city', Type\TextType::class, ['required' => false])
-            ->add('email', Type\EmailType::class)
-            ->add('address', Type\TextType::class, ['required' => false])
-            ->add('phone', Type\NumberType::class, ['required' => false])
-            ->add('message', Type\TextareaType::class, ['required' => false])
-            ->add('comments', Type\TextareaType::class, ['required' => false])
-            ->add('send', Type\SubmitType::class, ['label'=>'Become an Ambassador Today!'])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $volunteer = new Volunteer();
-            $volunteer->setFirstName($data['firstName']);
-            $volunteer->setLastName($data['lastName']);
-            $volunteer->setCity($data['city']);
-            $volunteer->setEmail($data['email']);
-            $volunteer->setAddress($data['address']);
-            $volunteer->setPhone($data['phone']);
-            $volunteer->setComments($data['comments']);
-            $volunteer->setMessage($data['message']);
-            $volunteer->setType('ambassador');
-
-            $entityManager->persist($volunteer);
-
-            $entityManager->flush();
-
-            /** @var  $template */
-            $template = $this->render("email/ambassador.html.twig", [
-                "volunteer" => $volunteer
-            ]);
-
-            $this->mailer->sendAmbassadorEmail($template, 'info@armeniatree.org');
-
-            return $this->render('index/ambassador.html.twig', [
-                'form' => $form->createView(),
-                'done' => true,
-            ]);
-        }
-
-        return $this->render('index/ambassador.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/empowering", name="empowering")
      */
     public function empowering()
@@ -652,11 +248,12 @@ class IndexController extends AbstractController
     public function team()
     {
         $branches = $this->getDoctrine()
-            ->getRepository(TeamBranches::class)
-            ->findAll(['branch_id'=>'DESC']);
+            ->getRepository(TeamBranch::class)
+            ->findAll()
+        ;
 
         $members = $this->getDoctrine()
-            ->getRepository(TeamMember::class)
+            ->getRepository(Team::class)
             ->findAll();
 
         return $this->render('index/our-team.html.twig', [
@@ -685,6 +282,7 @@ class IndexController extends AbstractController
      * @Route("/payment", name="payment")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function payment(Request $request)
     {
@@ -743,7 +341,7 @@ class IndexController extends AbstractController
             if($data['expirymonth'] == null || $data['expiryyear'] == null ){
                 return $this->render('index/'.$template.'.html.twig', [
                     'form' => $form->createView(),
-                    'lang' => $this->lang,
+                    'lang' => $request->getLocale(),
                     'errorDate' => true
                 ]);
             }
@@ -844,7 +442,7 @@ class IndexController extends AbstractController
 
         $donation = $this->getDoctrine()
             ->getRepository(Donation::class)
-            ->find($id);
+            ->findOneBy(["id" => $id]);
 
         $form = $this->createFormBuilder()
             ->add('name', Type\TextType::class, ['required' => true])
@@ -1158,7 +756,7 @@ class IndexController extends AbstractController
             if(!isset($data['amount']) || !isset($data['country']) || !isset($data['state'])){
                 return $this->render('index/donation.html.twig', [
                     'form' => $form->createView(),
-                    'lang' => $this->lang
+                    'lang' => $request->getLocale()
                 ]);
             }
 

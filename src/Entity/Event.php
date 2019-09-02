@@ -11,7 +11,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
- * @ORM\Table(name="events")
  * @Vich\Uploadable
  */
 class Event

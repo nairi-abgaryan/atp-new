@@ -52,6 +52,5 @@ class LocaleListener
             ->getFilters()
             ->enable('locale_filter');
         $filter->setParameter('lang', $event->getRequest()->getLocale());
-
     }
 }

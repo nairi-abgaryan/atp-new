@@ -103,7 +103,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                            <a href="{{ path('contact',{'lang': app.session.get('lang') }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>

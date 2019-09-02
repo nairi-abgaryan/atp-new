@@ -50,7 +50,7 @@ class Team
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\TeamLang",
-     *     mappedBy="teamMember",
+     *     mappedBy="team",
      *     cascade={"persist", "remove"},
      *     fetch="EAGER",
      *     orphanRemoval=true

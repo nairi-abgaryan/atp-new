@@ -41,7 +41,7 @@
                 <div class="col-sm-5 col-xs-12">
                     <p>By sponsoring a Backyard Nursery, you’ll be participating in the growing of trees while creating a sustainable income source for village families. Each BYN sponsor is paired with a family in Armenia who is growing and caring for seedlings in their backyard. Sponsors will receive an annual update from the family throughout the year.</p>
                     <div class="text-right">
-                        <a href="{{ path('simpleDonation', {'amount': 2000}) }}" id="target">
+                        <a href="{{ path('simpleDonation', {'amount': 2000, 'lang': app.session.get('lang')}) }}" id="target">
                             <button class="bn-donate-button" id="changeGreen">Donate Now</button>
                         </a>
                     </div>
@@ -112,7 +112,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                            <a href="{{ path('contact', {'lang': app.session.get('lang') }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>
@@ -180,11 +180,11 @@
         });
 
         $( ".one-payment-btn" ).click(function() {
-            var route = "{{ path('simpleDonation', {'amount': '2000'})|escape('js') }}";
+            var route = "{{ path('simpleDonation', {'amount': '2000', 'lang': app.session.get('lang')})|escape('js') }}";
             $("#target").attr("href", route);
         });
         $( ".two-payment-btn" ).click(function() {
-            var route = "{{ path('simpleDonation', {'amount': '1000'})|escape('js') }}";
+            var route = "{{ path('simpleDonation', {'amount': '1000', 'lang': app.session.get('lang')})|escape('js') }}";
             $("#target").attr("href", route);
         });
     </script>

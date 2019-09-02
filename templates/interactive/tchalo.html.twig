@@ -3,50 +3,16 @@
 {% block body %}
 
 
-    <section class="bridges-interactive-secondary-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-xs-12">
-                    <ul class="secondary-navbar">
-                        <li>
-                            <a href="{{ path('ecogames') }}">EcoGames</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('bbmagazine') }}">Magazines</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('videos') }}">Videos</a>
-                        </li>
-                        <li>
-                            <a class="active" href="{{ path('tchalo') }}">Meet Tchalo!</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('coloring') }}">Coloring</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('treevia') }}">Treevia!</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-xs-12 text-right">
-                    <a href="{{ path('interactive') }}">
-                        <img src="../img/bb-interactive.svg" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    {% include('interactive/secondary-menu.html.twig') %}
     <section class="meet-tchalo-wrapper">
         <div class="container">
             <div class="row center-aligned-row">
                 <div class="col-sm-6 col-xs-12">
                     {% autoescape %}
-                            <h4>{{ content.Title|raw }}</h4>
+                            <h4>JOIN TCHALO AND PREVENT FOREST FIRES</h4>
                     {% endautoescape %}
                     {% autoescape %}
-                            <p>{{ content.Text|raw }}</p>
+                            <p>Fire prevention is an important part of protecting our earth. Like the rest of the globe, Armenia is affected by drought and more extreme weather events caused by climate change. The risk of fire is high.  Join Tchalo the Dog and learn how you can prevent Forest Fires.</p>
                     {% endautoescape %}
                     <div class="tchalo-video" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('.../img/tchalo-video-bck.png') no-repeat; background-size: cover; height: 260px">
                         <div class="title-and-play-button-wrapper">
@@ -64,7 +30,7 @@
                                     <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
                                     <div class="video-container">
-                                        <iframe width="560" height="315" src="{{ content.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/iWI-vvxJV4I" frameborder="0"  allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -72,68 +38,14 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="../uploads/images/{{ content.Image }}" alt="">
+                    <img src="../uploads/images/1.png" alt="">
                 </div>
             </div>
         </div>
     </section>
 
     <!--Footer Section-->
-
-    <section class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                    <ul>
-                        <li class="hidden">
-                            <a href="#">Glossary</a>
-                        </li>
-
-                        <li>
-                            <a href="{{ path('contact') }}">Contact Us</a>
-                        </li><li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                    <ul>
-                        <li class="hidden">
-                            <a href="#">FAQ</a>
-                        </li>
-                        <li class="hidden">
-                            <a href="#">Terms & Conditions</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <p class="copyright-text">&copy; Copyright 1994-2019 Armenia Tree Project, a project of Armenian Assembly of America. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right  social">
-                    <p class="hashtag">#GetRooted</p>
-                    <a target="_blank" href="https://www.facebook.com/armeniatree">
-                        <img src="../img/facebook-logo.svg" alt="facebook">
-                    </a>
-                    <a target="_blank" href="https://twitter.com/ArmeniaTree">
-                        <img src="../img/twitter-logo.svg" alt="twitter">
-                    </a>
-                    <a target="_blank" href="https://www.instagram.com/armeniatree/">
-                        <img src="../img/instagram-logo.svg" alt="instagram">
-                    </a>
-                    <a target="_blank" href="https://www.youtube.com/user/ArmeniaTreeProject">
-                        <img src="../img/youtube.svg" alt="youtube">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include('interactive/footer.html.twig') %}
 
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.js') }}"></script>
@@ -145,24 +57,6 @@
     <!-- Custom Js Files-->
     <script src="{{ asset('js/main.js') }}"></script>
 
-
-
-
-
     </body>
     </html>
-    {#<hr>#}
-    {#<table>#}
-    {#{% for object in pager.currentPageResults %}#}
-    {#<tr>#}
-    {#<td>{{ object.Title }}</td>#}
-    {#<td>{{ object.Text }}</td>#}
-    {#</tr>#}
-    {#{% endfor %}#}
-    {#</table>#}
-
-    {#{% if pager.haveToPaginate %}#}
-    {#{{ pagerfanta(pager) }}#}
-    {#{% endif %}#}
-    {#<hr>#}
 {% endblock %}

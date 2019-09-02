@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Donation;
+use App\Form\Type\DonationType;
+use Doctrine\ORM\EntityManagerInterface;
+use Pagerfanta\Exception\NotValidCurrentPageException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
@@ -13,12 +17,60 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class DonationController extends AbstractController
 {
-    public function __construct()
+    /**
+     * @var EntityManagerInterface $em
+     */
+    private $em;
+
+    /**
+     * DonationController constructor.
+     * @param EntityManagerInterface $em
+     */
+    public function __construct(EntityManagerInterface $em)
     {
+        $this->em = $em;
         $session = new Session();
         if($session->isStarted()) {
             $session->start();
         }
+    }
+
+    /**
+     * @Route("{lang}/donation", name="donation")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws
+     */
+    public function donation(Request $request)
+    {
+        $form = $this->createForm(DonationType::class);
+        $form->submit($request->request->all());
+
+        if ($form->isSubmitted() && !$form->isValid()) {
+            return $this->render('index/donation.html.twig', [
+                'form' => $form->createView()
+            ]);
+        }
+
+        /** @var Donation $data */
+        $data = $form->getData();
+        if(!$data->getAmount()){
+            return $this->render('index/donation.html.twig', [
+                'form' => $form->createView(),
+                'errorAmount' => true
+            ]);
+        }
+
+        $data->setCreatedAt(new \DateTime('now'));
+        $this->em->persist($data);
+        $this->em->flush();
+
+        if($data->getCertificate() == 'Yes'){
+            return $this->redirectToRoute('donateReviewCertificate', array('id' => $data->getId()));
+        }
+
+        return $this->redirectToRoute('donateReview', array('id' => $data->getId()));
+
     }
 
     /**
@@ -62,12 +114,14 @@ class DonationController extends AbstractController
 
         if($data['status'] == 'yes'){
             foreach ($donations as $key => $value){
+                /** @var Donation $value */
                 if($value->getTransactionStatus() != '0'){
                     unset($donations[$key]);
                 }
             }
         }elseif($data['status'] == 'no'){
             foreach ($donations as $key => $value){
+                /** @var Donation $value */
                 if($value->getTransactionStatus() == '0'){
                     unset($donations[$key]);
                 }

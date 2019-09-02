@@ -2,15 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Ecogames\Ecogames;
-use App\Entity\Interactive\InteractiveBottom;
-use App\Entity\Interactive\InteractiveSlider;
-use App\Entity\Magazine\Magazine;
-use App\Entity\Tchalo\TchaloContent;
-use App\Entity\Treevia\Treevia;
-use App\Entity\TreeviaQuestion;
-use App\Entity\Videos\VideosContent;
-use App\Entity\Videos\VideosTop;
+use App\Entity\Video;
 use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +12,6 @@ use Symfony\Component\Form\Extension\Core\Type;
 
 class InteractiveController extends AbstractController
 {
-
     public $lang='eng';
     private $mailer;
 
@@ -95,39 +86,30 @@ class InteractiveController extends AbstractController
     }
 
     /**
-     * @Route("/videos", name="videos")
+     * @Route("/{lang}/videos", name="videos")
      */
     public function videos()
     {
         $top = $this->getDoctrine()
-            ->getRepository(VideosTop::class)
-            ->findOneBy([], ['id'=>'DESC']);
+            ->getRepository(Video::class)
+            ->findOneBy(['isFirst'=>'true']);
 
         $content = $this->getDoctrine()
-            ->getRepository(VideosContent::class)
+            ->getRepository(Video::class)
             ->findAll();
 
         return $this->render('interactive/videos.html.twig', [
             'top' => $top,
-            'content' => $content,
-            'lang' => $this->lang,
+            'content' => $content
         ]);
     }
 
     /**
-     * @Route("/tchalo", name="tchalo")
+     * @Route("/{lang}/tchalo", name="tchalo")
      */
-    public function tchalo()
+    public function tchalo(Request $request)
     {
-
-        $content = $this->getDoctrine()
-            ->getRepository(TchaloContent::class)
-            ->findOneBy([], ['id'=>'DESC']);
-
-        return $this->render('interactive/tchalo.html.twig', [
-            'content' => $content,
-            'lang' => $this->lang,
-        ]);
+        return $this->render('interactive/tchalo.html.twig');
     }
 
     /**

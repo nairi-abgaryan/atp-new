@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Base\ImageEntity;
+use App\Entity\Base\TextEntityVirtual;
 use App\Entity\Base\TimestampableEntity;
 use App\Entity\Base\TitleEntityVirtual;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Video
 {
-    use TitleEntityVirtual, ImageEntity, TimestampableEntity;
+    use TitleEntityVirtual, TextEntityVirtual, ImageEntity, TimestampableEntity;
 
     /**
      * @ORM\Id()
@@ -32,13 +33,19 @@ class Video
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\VideoLang",
-     *     mappedBy="videosContent",
+     *     mappedBy="video",
      *     cascade={"persist", "remove"},
      *     fetch="EAGER",
      *     orphanRemoval=true
      * )
      */
     public $entityLang;
+
+    /**
+     * @var boolean
+     * @ORM\Column(type="boolean")
+     */
+    public $isFirst;
 
     public function __construct()
     {

@@ -3,17 +3,19 @@
 
 {% block body %}
 
-    <section class="backyard-nurseries secondary-pages-top-content" style="background:url('../uploads/images/{{ top.Image }}') no-repeat; background-size:cover; background-position: 0;">
+    <section class="backyard-nurseries secondary-pages-top-content" style="background:url('../uploads/images/20151028_115032jj.jpg') no-repeat; background-size:cover; background-position: 0;">
         <div class="container">
             <div class="row center-aligned-row">
                 <div class="col-sm-6">
                     {% autoescape %}
-                        <h1>{{ top.Title|raw }}</h1>
+                        <h1>BACKYARD NURSERIES</h1>
                     {% endautoescape %}
                 </div>
                 <div class="col-sm-6 cover-text">
                     {% autoescape %}
-                        <p>{{ top.Text|raw }}</p>
+                        <p>Over 38 families in Armenia have harvested
+                            over 40,000 trees, increasing their family
+                            income by an average of over 30%.</p>
                     {% endautoescape %}
                 </div>
             </div>
@@ -21,20 +23,16 @@
     </section>
 
     <div class="backyard-nurseries-main-content-wrapper">
-        {% for item in content %}
-            {% if item.Position == 'first' %}
         <section class="community-second">
             <div class="container">
                 <div class="row center-aligned-row">
                     <div class="col-md-6 col-xs-12">
                         {% autoescape %}
-                        <p>
-                            {{ item.Text|raw }}
-                        </p>
+                        <p>{% trans %} backyard_first_text {% endtrans %}</p>
                         {% endautoescape %}
-                        <a href="{{ path('bndonate') }}">
+                        <a href="{{ path('bndonate', { 'lang': app.request.locale }) }}">
                             <button class="sponsor-backyard-nursery-btn">
-                                    {{ item.LinkText|raw }}
+                                {% trans %}Sponsor a Backyard Nursery {% endtrans %}
                             </button>
                         </a>
                     </div>
@@ -42,7 +40,7 @@
                         <div class="support-families">
                             <div class="title-and-play-button-wrapper">
                                 {% autoescape %}
-                                        <h3>{{ item.Title|raw }}</h3>
+                                        <h3> How Armenian Villagers Are Using Trees  </h3>
                                 {% endautoescape %}
                                 <a  data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
                             </div>
@@ -55,7 +53,7 @@
                                         <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
                                                 aria-hidden="true">&times;</button>
                                         <div class="video-container">
-                                            <iframe width="560" height="315" src="{{ item.VideoLink }}" frameborder="0"  allowfullscreen></iframe>
+                                            <iframe width="560" height="315" src="https://youtu.be/IDHxpsufSTA" frameborder="0"  allowfullscreen></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -63,50 +61,56 @@
                         </div>
                     </div>
                 </div>
-                {% elseif item.Position == 'second' %}
                 <div class="row center-aligned-row">
                     <div class="col-md-6 col-xs-12">
-                        <img src="../uploads/images/{{ item.Image }}" alt="">
+                        <img src="../uploads/images/ATP Annual Report 2017-2018 Copy.png" alt="">
                     </div>
                     <div class="col-md-6">
                         {% autoescape %}
-                            <p>
-                                {{ item.Text|raw }}
+                            <p><p>The approximate average income for a family in these remote villages is less than $200 per month, according to interviews conducted by ATP. Often, families live off the produce of their land, or receive a modest pension or children&#39;s allowance from the government.</p>
+
+                            <p>The BYN program allows them to almost double their income, giving them more financial stability and, in many cases, helping them to avoid leaving the country for work.</p>
                             </p>
                         {% endautoescape %}
                     </div>
                 </div>
-                {% elseif item.Position == 'third' %}
                 <div class="row backyard-nurseries-info-panel-wrapper center-aligned-row">
                     <div class="col-md-6 col-xs-12">
                         {% autoescape %}
                             <p>
-                                {{ item.Text|raw }}
+                            <p>ATP created the BYN Program as a way to increase their overall tree yield and offer remote villagers economic opportunity.</p>
+
+                            <p>&nbsp;</p>
+
+                            <p>Backyard Nursery Sponsors will receive reports from the family throughout the year with updates on the progress and results of their support.</p>
                             </p>
                         {% endautoescape %}
                     </div>
                     <div class="col-md-6 col-xs-12 backyard-nurseries-info-panel">
                         {% autoescape %}
-                        <p>
-                            {{ item.Title|raw }}
-                        </p>
+                            <h5>Sponsorship Level</h5>
+                            <p>$1,000/yr for two years</p>
+                            <h5>Number Of Seedlings Per Nursery</h5>
+                            <p>1,200-1,500</p>
+                            <h5>Nursery Time Period</h5>
+                            <p>2-3 years</p>
+                            <h5>Expected Tree Yield</h5>
+                            <p>85%</p>
                         {% endautoescape %}
                     </div>
                 </div>
             </div>
         </section>
 
-        {% elseif item.Position == 'fourth' %}
         <section class="acknowledgment-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
-                        <img src="../uploads/images/{{ item.Image }}" alt="">
+                        <img src="../uploads/images/backyard-photo-two.jpg" alt="">
                     </div>
                     <div class="col-md-6 col-xs-12">
                         {% autoescape %}
-                            <p>
-                                {{ item.Text|raw }}
+                            <p><em>&quot;BYN rewards family farmers for good work, when we pay for trees that have been well cared for. The program received an Energy Globe Award at the European Parliament because of this program&#39;s positive impact on the three aspects of sustainability:<span> people, profit &amp; planet</span>.&rdquo;</em>
                             </p>
                         {% endautoescape %}
                         <p class="text-right">-- Arthur Harutyunyan <br/> ATP Operations Manager</p>
@@ -114,8 +118,6 @@
                 </div>
             </div>
         </section>
-        {% endif %}
-        {% endfor %}
 
         <section class="community-last-section">
             <div class="container">
@@ -174,7 +176,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                            <a href="{{ path('contact', { 'lang': app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>

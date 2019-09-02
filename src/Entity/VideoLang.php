@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Base\LangEntity;
+use App\Entity\Base\TextEntity;
 use App\Entity\Base\TitleEntity;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class VideoLang
 {
-    use TitleEntity, LangEntity;
+    use TitleEntity, TextEntity, LangEntity;
 
     /**
      * @ORM\Id()
