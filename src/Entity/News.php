@@ -47,10 +47,6 @@ class News
     /**
      * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="App\Entity\Image", cascade={"persist"})
-     * @ORM\JoinTable(name="news_images",
-     *      joinColumns={@ORM\JoinColumn(name="news_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
-     * )
      */
     private $images;
 

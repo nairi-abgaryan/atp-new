@@ -42,7 +42,7 @@ class Feature
     private $position;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(name="`order`", type="string", nullable=false)
      */
     private $order;
 

@@ -89,11 +89,13 @@ class EntityListener implements EventSubscriber
                 $metadata->getColumnNames();
                 $entityLang = $entity->getEntityLang()[0]??new $entityTranslation();
 
-                foreach ($metadata->getColumnNames() as $field){
+                foreach ($metadata->reflFields as $field => $value){
                     $ucFiled = ucfirst($field);
                     $functionSet = "set".$ucFiled;
                     $functionGet = "get".$ucFiled;
                     if (property_exists($entity, $field) && $field != 'id'){
+                        var_dump($functionSet);
+
                         $entityLang->$functionSet($entity->$functionGet());
                     }
                 }
