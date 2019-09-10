@@ -7,10 +7,9 @@ use App\Entity\Base\LangEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TeamLangRepository")
- * @ORM\Table(name="teamsLang")
+ * @ORM\Entity(repositoryClass="App\Repository\LessonsLangRepository")
  */
-class TeamLang
+class LessonsLang
 {
     use BaseEntity, LangEntity;
 
@@ -22,35 +21,46 @@ class TeamLang
     private $id;
 
     /**
-     * @var Team
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="entityLang", cascade={"persist"})
+     * @var Lessons
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lessons", inversedBy="entityLang", cascade={"persist"})
      */
-    private $team;
+    private $lessons;
 
     /**
      * @ORM\Column(type="string", nullable=true, length=2)
      */
     private $lang;
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return Team
+     * @param mixed $id
      */
-    public function getTeam(): Team
+    public function setId($id): void
     {
-        return $this->team;
+        $this->id = $id;
     }
 
     /**
-     * @param Team $team
+     * @return Lessons
      */
-    public function setTeam(Team $team): void
+    public function getLessons()
     {
-        $this->team = $team;
+        return $this->lessons;
+    }
+
+    /**
+     * @param Lessons $lessons
+     */
+    public function setLessons(Lessons $lessons): void
+    {
+        $this->lessons = $lessons;
     }
 
     /**

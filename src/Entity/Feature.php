@@ -75,12 +75,28 @@ class Feature
         return $this->id;
     }
 
-    public function getLink(): ?string
+    /**
+     * @return mixed
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param mixed $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+    public function getLink()
     {
         return $this->link;
     }
 
-    public function setLink(?string $link): self
+    public function setLink($link)
     {
         $this->link = $link;
 
@@ -109,6 +125,14 @@ class Feature
         $this->position = $position;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEntityLang()
+    {
+        return $this->entityLang;
     }
 
     /**

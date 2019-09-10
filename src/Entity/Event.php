@@ -28,9 +28,9 @@ class Event
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\EventLang",
-     *     mappedBy="events",
-     *     cascade={"persist", "remove"},
-     *     fetch="EAGER",
+     *     mappedBy="event",
+     *     cascade={"persist", "remove", "refresh", "merge"},
+     *     fetch="EXTRA_LAZY",
      *     orphanRemoval=true
      * )
      */
@@ -47,6 +47,14 @@ class Event
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEntityLang()
+    {
+        return $this->entityLang;
     }
 
     /**

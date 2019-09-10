@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Base\BaseEntityVirtual;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Base\ImageEntity;
 use App\Entity\Base\TimestampableEntity;
@@ -16,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Team
 {
-    use ImageEntity, TimestampableEntity;
+    use BaseEntityVirtual, ImageEntity, TimestampableEntity;
 
     /**
      * @ORM\Id()
@@ -31,16 +32,6 @@ class Team
     private $branch_id;
 
     /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $position;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TeamBranch")
      * @ORM\JoinColumn(name="branch_id", referencedColumnName="id", onDelete="cascade")
      */
@@ -51,8 +42,8 @@ class Team
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\TeamLang",
      *     mappedBy="team",
-     *     cascade={"persist", "remove"},
-     *     fetch="EAGER",
+     *     cascade={"persist", "remove", "refresh", "merge"},
+     *     fetch="EXTRA_LAZY",
      *     orphanRemoval=true
      * )
      */
@@ -77,50 +68,6 @@ class Team
     public function setId($id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return string
-     * @var mixed $this->lang
-     */
-    public function getName()
-    {
-        if ($this->entityLang && $this->entityLang->get(0)) {
-            return $this->entityLang->get(0)->getName();
-        }
-
-        return null;
-    }
-
-    /**
-     * @return string
-     * @var mixed $this->lang
-     */
-    public function getPosition()
-    {
-        if ($this->entityLang && $this->entityLang->get(0)) {
-            return $this->entityLang->get(0)->getPosition();
-        }
-
-        return null;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
-        $this->entityLang[0]->setName($name);
-    }
-
-    /**
-     * @param mixed $position
-     */
-    public function setPosition($position): void
-    {
-        $this->position = $position;
-        $this->entityLang[0]->setPosition($position);
     }
 
     public function getBranchId(): ?int
@@ -183,6 +130,14 @@ class Team
         $this->branches = $branches;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEntityLang()
+    {
+        return $this->entityLang;
     }
 
     /**
