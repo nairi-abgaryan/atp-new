@@ -21,7 +21,7 @@ class EventLang
 
     /**
      * @var Event
-     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="entityLang")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="entityLang", cascade={"persist"})
      */
     private $event;
 

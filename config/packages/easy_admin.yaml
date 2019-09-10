@@ -31,6 +31,124 @@ easy_admin:
                     - property: 'entityLang.title'
                     - property: 'entityLang.text'
 
+        Events:
+            class: App\Entity\Event
+            label: 'Event'
+            list:
+                title: "Event"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'imageFile', type: 'vich_image' }
+            search:
+                fields:
+                    - property: 'entityLang.title'
+                    - property: 'entityLang.text'
+
+        Team:
+            class: App\Entity\Team
+            label: 'Team'
+            list:
+                title: "Team"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'imageFile', type: 'vich_image' }
+            search:
+                fields:
+                    - property: 'entityLang.title'
+                    - property: 'entityLang.text'
+
+        Ambassador:
+            class: App\Entity\Ambassador
+            label: 'Ambassador'
+            list:
+                title: "Ambassador"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'text_bottom'  }
+                    - { property: 'text_top'  }
+                    - { property: 'image', type: 'images', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'text_bottom'  }
+                    - { property: 'text_top'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'text_bottom' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'text_top' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'imageFile', type: 'vich_image' }
+            search:
+                fields:
+                    - property: 'entityLang.title'
+                    - property: 'entityLang.text_bottom'
+                    - property: 'entityLang.text_top'
+
+        Featured:
+            class: App\Entity\Feature
+            label: 'Features'
+            list:
+                title: "Features"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'link_type'  }
+                    - { property: 'position'  }
+                    - { property: 'order'  }
+                    - { property: 'image', type: 'images', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'link_type'  }
+                    - { property: 'position'  }
+                    - { property: 'order'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'link' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'link_type' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'position' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'order' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'imageFile', type: 'vich_image' }
+            search:
+                fields:
+                    - property: 'entityLang.title'
+
         Donation:
             class: App\Entity\Donation
             label: 'Donation Amount'

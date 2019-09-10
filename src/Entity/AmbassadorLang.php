@@ -25,15 +25,14 @@ class AmbassadorLang
 
     /**
      * @var Ambassador
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ambassador", inversedBy="entityLang")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ambassador", inversedBy="entityLang", cascade={"persist"})
      */
     private $ambassador;
 
     /**
-     * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", nullable=true, length=2)
      */
-    private $textBottom;
+    private $lang;
 
     public function getId(): ?int
     {
@@ -57,18 +56,18 @@ class AmbassadorLang
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getTextBottom()
+    public function getLang()
     {
-        return $this->textBottom;
+        return $this->lang;
     }
 
     /**
-     * @param string $textBottom
+     * @param mixed $lang
      */
-    public function setTextBottom(string $textBottom): void
+    public function setLang($lang): void
     {
-        $this->textBottom = $textBottom;
+        $this->lang = $lang;
     }
 }

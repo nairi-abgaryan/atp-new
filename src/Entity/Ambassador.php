@@ -39,33 +39,46 @@ class Ambassador
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\AmbassadorLang",
      *     mappedBy="ambassador",
-     *     cascade={"persist", "remove"},
-     *     fetch="EAGER",
+     *     cascade={"persist", "remove", "refresh", "merge"},
+     *     fetch="EXTRA_LAZY",
      *     orphanRemoval=true
      * )
      */
     public $entityLang;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="App\Entity\Image", cascade={"persist"})
+     * @ORM\JoinTable(name="ambassador_images",
+     *      joinColumns={@ORM\JoinColumn(name="ambassador_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
+     * )
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->entityLang = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function setImageFile(File $image = null)
+    /**
+     * @return ArrayCollection
+     */
+    public function getImages()
     {
-        $this->imageFile = $image;
-
-        if ($image) {
-            try {
-                $this->updatedAt = new \DateTime('now');
-            } catch (\Exception $e) {
-            }
-        }
+        return $this->images;
     }
 
-    public function getImageFile()
+    /**
+     * @param ArrayCollection $images
+     */
+    public function setImages($images): void
     {
-        return $this->imageFile;
+        $this->images = $images;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
@@ -78,6 +91,14 @@ class Ambassador
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getEntityLang()
+    {
+        return $this->entityLang;
     }
 
     /**
