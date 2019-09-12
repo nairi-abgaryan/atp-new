@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Certificate;
+use App\Entity\Events;
 use App\Entity\Team;
 use App\Entity\TeamBranch;
 use App\Form\Type\InterestType;
+use App\Manager\EventManager;
 use App\Manager\FeatureManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,6 +38,10 @@ class IndexController extends AbstractController
      * @var FeatureManager
      */
     private $featureManager;
+    /**
+     * @var EventManager
+     */
+    private $eventManager;
 
     /**
      * IndexController constructor.
@@ -47,12 +53,14 @@ class IndexController extends AbstractController
     (
         MailService $mailer,
         FeatureManager $featureManager,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        EventManager $eventManager
     )
     {
         $this->mailer = $mailer;
         $this->featureManager = $featureManager;
         $this->em = $em;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -62,6 +70,8 @@ class IndexController extends AbstractController
      */
     public function index(Request $request)
     {
+        $lang = ucfirst($request->getLocale());
+
         $eventbrite = new Eventbrite();
         $response = $eventbrite->getEvents();
         $events = $response['events'];
@@ -94,8 +104,12 @@ class IndexController extends AbstractController
 
         $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
 
+        $topEvents = $this->eventManager->homePageEvents($lang);
+
+//        dump($topEvents);die;
         return $this->render("index/index.html.twig", [
             'events' => $allEvents,
+            'topEvents' => $topEvents,
             'bottom' => $features,
         ]);
     }

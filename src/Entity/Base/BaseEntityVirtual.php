@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation as Serializer;
  * @Serializer\VirtualProperty(
  *     "title",
  *     exp="this.getOwner()->getTitle",
- *     options={@Serializer\SerializedName("sName")}
+ *     options={@Serializer\SerializedName("Name")}
  *  )
  */
 trait BaseEntityVirtual

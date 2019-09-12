@@ -1,3 +1,7 @@
+{% set lang = app.request.locale %}
+{% set Lang = lang | capitalize %}
+{% set uriLang = '?lang=' ~ lang %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,19 +61,19 @@
                         <ul class="nav navbar-nav navbar-left">
                             <li class="dropdown">
                                 <a id="our_work" class="page-scroll" href="#" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Our Work</a>
+                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Our Work {% endtrans %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="our_work">
                                     <li>
-                                        <a href="{{ path('tree',{'lang': app.request.locale }) }}">Tree Propagation</a>
+                                        <a href="{{ path('tree',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Tree Propagation {% endtrans %}</a>
                                     </li>
                                     <li class="sub-dropdown">
-                                        <a href="{{ path('forestation',{'lang': app.request.locale }) }}">Forestry</a>
+                                        <a href="{{ path('forestation',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Forestry {% endtrans %}</a>
                                         <ul class="sub-dropdown-group hidden-xs">
                                             <li><a href="{{ path('mirak',{'lang': app.request.locale }) }}">Mirak Family Nursery</a></li>
                                         </ul>
                                     </li>
                                     <li class="sub-dropdown">
-                                        <a href="{{ path('community',{'lang': app.request.locale }) }}">Community Planting</a>
+                                        <a href="{{ path('community',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Community Planting {% endtrans %}</a>
                                         <ul class="sub-dropdown-group">
                                             <li><a href="{{ path('village',{'lang': app.request.locale }) }}">Village & City Greening</a></li>
                                             <li><a href="{{ path('stewardship',{'lang': app.request.locale }) }}">Environmental Stewardship</a></li>
@@ -77,13 +81,13 @@
                                         </ul>
                                     </li>
                                     <li class="sub-dropdown">
-                                        <a href="{{ path('economic',{'lang': app.request.locale }) }}">Economic Empowerment</a>
+                                        <a href="{{ path('economic',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Economic Empowerment {% endtrans %}</a>
                                         <ul class="sub-dropdown-group">
                                             <li><a href="{{ path('backyard',{'lang': app.request.locale }) }}">Backyard Nurseries</a></li>
                                         </ul>
                                     </li>
                                     <li class="sub-dropdown">
-                                        <a href="{{ path('education',{'lang': app.request.locale }) }}">Education & Awareness</a>
+                                        <a href="{{ path('education',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Education & Awareness {% endtrans %}</a>
                                         <ul class="sub-dropdown-group">
                                             <li><a href="{{ path('bridges',{'lang': app.request.locale }) }}">The Building Bridges Initiative</a></li>
                                             <li><a href="{{ path('empowering',{'lang': app.request.locale }) }}">Empowering Communities in Armenia</a></li>
@@ -94,41 +98,41 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('where',{'lang': app.request.locale }) }}">Where We Are</a>
+                                <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('where',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Where We Are {% endtrans %}</a>
                             </li>
                             <li class="dropdown">
                                 <a id="getInvolved" class="page-scroll" href="#" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Get Involved</a>
+                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Get Involved {% endtrans %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="getInvolved">
                                     <li class="sub-dropdown">
-                                        <a href="{{ path('donation',{'lang': app.request.locale }) }}">Donate</a>
+                                        <a href="{{ path('donation',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Donate {% endtrans %}</a>
                                         {#<ul class="sub-dropdown-group">#}
                                             {#<li><a href="">Oak Society</a></li>#}
                                         {#</ul>#}
                                     </li>
                                     <li>
-                                        <a href="{{ path('volunteer',{'lang': app.request.locale }) }}">Volunteer</a>
+                                        <a href="{{ path('volunteer',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Volunteer {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('ambassador',{'lang': app.request.locale }) }}">Be an Ambassador!</a>
+                                        <a href="{{ path('ambassador',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Be An Ambassador! {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('tour',{'lang': app.request.locale }) }}">Tour and Plant</a>
+                                        <a href="{{ path('tour',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Tour and Plant {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('events',{'lang': app.request.locale }) }}">Join Us!</a>
+                                        <a href="{{ path('events',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Join Us! {% endtrans %}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a id="our_impact" class="page-scroll"  href="{{ path('impact',{'lang': app.request.locale }) }}"  role="button"
-                                   aria-haspopup="true" aria-expanded="false">Our Impact</a>
+                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Our Impact {% endtrans %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="our_impact">
                                     <li>
-                                        <a href="{{ path('team', {'lang': app.request.locale }) }}">Our Team</a>
+                                        <a href="{{ path('team', {'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Our Team {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('mission',{'lang': app.request.locale }) }}">Mission & History</a>
+                                        <a href="{{ path('mission',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Mission & History {% endtrans %}</a>
                                     </li>
                                     {#<li>#}
                                         {#<a href="#">Partners and Supporters</a>#}
@@ -137,22 +141,22 @@
                             </li>
                             <li class="dropdown">
                                 <a id="kids_family" class="page-scroll"  href="{{ path('kids',{'lang': app.request.locale }) }}"  role="button"
-                                   aria-haspopup="true" aria-expanded="false">Kids & Family</a>
+                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Mission & History {% endtrans %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="kids_family">
                                     <li>
-                                        <a href="{{ path('interactive',{'lang': app.request.locale }) }}">Building Bridges Interactive</a>
+                                        <a href="{{ path('interactive',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Building Bridges Interactive {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('clubs',{'lang': app.request.locale }) }}">Eco-Clubs in Armenia</a>
+                                        <a href="{{ path('clubs',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Eco-Clubs in Armenia {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('camps',{'lang': app.request.locale }) }}">Summer Eco Camps</a>
+                                        <a href="{{ path('camps',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Summer Eco Camps {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('tchalo',{'lang': app.request.locale }) }}">Fire Safety & Prevention</a>
+                                        <a href="{{ path('tchalo',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Fire Safety & Prevention {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('photo', {'lang': app.request.locale }) }}">Photo Viewer</a>
+                                        <a href="{{ path('photo', {'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Photo Viewer {% endtrans %}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -169,10 +173,10 @@
                             </li>
                             <li class="button-wrapper">
                                 <a href="{{ path('donation', {'lang': app.request.locale }) }}" class="donation-link">
-                                 <button class="donate-btn">Donate</button>
+                                 <button class="donate-btn">{% trans from "messages" into lang %} DONATE {% endtrans %}</button>
                                 </a>
                             </li>
-                            
+
                             <ul class="admin-language-switcher hidden" aria-labelledby="language_selector">
                                 {#<li>#}
                                     {#{% if app.request.locale == 'en' %}#}
