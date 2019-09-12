@@ -41,6 +41,8 @@ class EventController extends AbstractController
      */
     public function events(Request $request)
     {
+        $lang = ucfirst($request->getLocale());
+        var_dump($lang);die;
         $page = $request->query->get('page', 1);
         $form = $this->createForm(FindEventType::class);
 

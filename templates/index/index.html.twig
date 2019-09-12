@@ -4,7 +4,7 @@
     <!--Top Section-->
     <section id="top" class="top-section">
         <div class="owl-carousel owl-theme">
-                <div class="item" style="background:url('../uploads/images/new_photo.jpg') no-repeat; background-size:cover; background-position: 0; height: 460px">
+                <div class="item" style="background:url('../uploads/images/image(2).jpg') no-repeat; background-size:cover; background-position: 0; height: 460px">
                     <div class="container">
                         <h1>{% trans %} SUSTAIN {% endtrans %}</h1>
                         <p>{% trans %} Ensuring a high survival of trees while enriching the soil, water, air quality, and harvest {% endtrans %} }}</p>
@@ -36,7 +36,7 @@
                                 <h3>{% trans %}ATP’s solution is holistic: both nature and people are integral forces that must work together to create a sustainable, healthy and non-threatening environment.{% endtrans %}</h3>
                         {% endautoescape %}
                         {% autoescape %}
-                                <p>{% trans %}Throughout the past 25 years, Armenia Tree Project has mastered the art of growing and planting healthy trees in Armenia and honed its ability to sustain and propagate the country’s natural resources.{% endtrans %}</p>
+                                <p>{% trans %}Throughout the past 25 years, Armenia Tree Project has mastered the art of growing and planting healthy trees in Armenia, and honed its ability to sustain and propagate the country’s natural resources.{% endtrans %}</p>
                         {% endautoescape %}
                     </div>
                 </div>
@@ -45,39 +45,38 @@
                     <a href="{{ app.request.locale }}/tree">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                             <div class="single item-one" style="background:url('../uploads/images/tree_propagation.jpg') no-repeat; background-size:cover; background-position: 0;"> </div>
-                            <h4>TREE PROPAGATION</h4>
+                            <h4>{% trans %}TREE PROPAGATION{% endtrans %}</h4>
                         </div>
                     </a>
                     <a href="{{ app.request.locale }}/forestation">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                             <div class="single item-one" style="background:url('../uploads/images/chelsea-bock-3073-unsplash.jpg') no-repeat; background-size:cover; background-position: 0;"> </div>
-                            <h4>FORESTATION</h4>
+                            <h4>{% trans %}FORESTATION{% endtrans %}</h4>
                         </div>
                     </a>
                     <a href="{{ app.request.locale }}/community">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                             <div class="single item-one" style="background:url('../uploads/images/billy-onjea-73784-unsplash.jpg') no-repeat; background-size:cover; background-position: 0;"> </div>
-                            <h4>COMMUNITY PLANTING</h4>
+                            <h4>{% trans %}COMMUNITY PLANTING{% endtrans %}</h4>
                         </div>
                     </a>
                     <a href="{{ app.request.locale }}/economic">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                             <div class="single item-one" style="background:url('../uploads/images/spencer-watson-330677-unsplash.jpg') no-repeat; background-size:cover; background-position: 0;"> </div>
-                            <h4>ECONOMIC EMPOWERMENT</h4>
+                            <h4>{% trans %}ECONOMIC EMPOWERMENT{% endtrans %}</h4>
                         </div>
                     </a>
                     <a href="{{ app.request.locale }}/education">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                             <div class="single item-one" style="background:url('../uploads/images/education.jpg') no-repeat; background-size:cover; background-position: 0;"> </div>
-                            <h4>EDUCATION &amp; AWARENESS</h4>
+                            <h4>{% trans %}EDUCATION &amp; AWARENESS{% endtrans %}</h4>
                         </div>
                     </a>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"> </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <p>ATP’s solution is holistic: both nature and people are integral forces that must work together<br>
-                            to create a sustainable, healthy and non-threatening environment.</p>
+                        <p>{% trans %}ATP’s solution is holistic. both nature and people are integral forces that must work together to create a sustainable, healthy and non-threatening environment.{% endtrans %}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@
 
         <section id="news" class="news-section">
             <div class="container">
-                <h4>FEATURED CONTENT</h4>
+                <h4>{% trans %} FEATURED CONTENT {% endtrans %}</h4>
                 <div class="grid-container">
 
                     {% for item in bottom %}
@@ -182,18 +181,32 @@
 
     <!-- Events Section-->
 
-    <section id="events" class="events-screen">
-        <div class="container">
-            <div class="row center-aligned-row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 events-description">
-
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center review tree slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1">
-                    <div class="calendar"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% if topEvents %}
+        {{ dump(topEvents) }}
+{#        <section id="events" class="community-last-section">#}
+{#            <div class="container">#}
+{#                <h4>UPCOMING EVENTS</h4>#}
+{#                <div class="row">#}
+{#                    {% for event in topEvents %}#}
+{#                        <div class="col-md-4 col-xs-12">#}
+{#                            <div class="single-event" style="background: linear-gradient(rgba(0,0,0, .45), rgba(0,0,0,.45)), url('../uploads/images/{{ event.image }}') no-repeat; background-size: cover; height: 270px;">#}
+{#                                <h3>{{ event.title|truncate(45) }}</h3>#}
+{#                                <p>{{ event.startDate|date("d M, Y") }}</p>#}
+{#                                {% if event.link %}#}
+{#                                    <a target="_blank" href="{{ event.link }}">Learn More</a>#}
+{#                                {% endif %}#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                <div class="row text-center">#}
+{#                    <a href="{{ path('events',{'lang': app.session.get('lang') }) }}" class="events-page-link">#}
+{#                        Learn More About Our Events#}
+{#                    </a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
+    {% endif %}
 
     <!--Footer Section-->
 
