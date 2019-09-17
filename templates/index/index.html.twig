@@ -182,30 +182,30 @@
     <!-- Events Section-->
 
     {% if topEvents %}
-        {{ dump(topEvents) }}
-{#        <section id="events" class="community-last-section">#}
-{#            <div class="container">#}
-{#                <h4>UPCOMING EVENTS</h4>#}
-{#                <div class="row">#}
-{#                    {% for event in topEvents %}#}
-{#                        <div class="col-md-4 col-xs-12">#}
-{#                            <div class="single-event" style="background: linear-gradient(rgba(0,0,0, .45), rgba(0,0,0,.45)), url('../uploads/images/{{ event.image }}') no-repeat; background-size: cover; height: 270px;">#}
-{#                                <h3>{{ event.title|truncate(45) }}</h3>#}
+{#        {{ dump(topEvents) }}#}
+        <section id="events" class="community-last-section">
+            <div class="container">
+                <h4>UPCOMING EVENTS</h4>
+                <div class="row">
+                    {% for event in topEvents %}
+                        <div class="col-md-4 col-xs-12">
+                            <div class="single-event" style="background: linear-gradient(rgba(0,0,0, .45), rgba(0,0,0,.45)), url('../uploads/images/{{ event.image }}') no-repeat; background-size: cover; height: 270px;">
+                                <h3>{{ event.title|truncate(45) }}</h3>
 {#                                <p>{{ event.startDate|date("d M, Y") }}</p>#}
 {#                                {% if event.link %}#}
 {#                                    <a target="_blank" href="{{ event.link }}">Learn More</a>#}
 {#                                {% endif %}#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    {% endfor %}#}
-{#                </div>#}
-{#                <div class="row text-center">#}
-{#                    <a href="{{ path('events',{'lang': app.session.get('lang') }) }}" class="events-page-link">#}
-{#                        Learn More About Our Events#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </section>#}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row text-center">
+                    <a href="{{ path('events',{'lang': app.session.get('lang') }) }}" class="events-page-link">
+                        Learn More About Our Events
+                    </a>
+                </div>
+            </div>
+        </section>
     {% endif %}
 
     <!--Footer Section-->

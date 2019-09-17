@@ -42,12 +42,12 @@ class User
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getUsername()
     {
-        return (string) $this->username;
+        return  $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername($username)
     {
         $this->username = $username;
 
@@ -103,5 +103,9 @@ class User
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+    public function __toString()
+    {
+        return $this->username;
     }
 }

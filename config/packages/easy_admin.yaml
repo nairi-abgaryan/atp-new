@@ -79,6 +79,7 @@ easy_admin:
                 fields:
                     - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'branch_id' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
