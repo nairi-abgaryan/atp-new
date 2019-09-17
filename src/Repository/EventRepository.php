@@ -25,31 +25,16 @@ class EventRepository extends ServiceEntityRepository
      */
     public function getHomepageEvents($lang)
     {
-//        var_dump('aaa');die;
         $qb = $this->createQueryBuilder('e')
-            ->select('e, l')
-            ->join('e.entityLang', 'l')
+            ->select('e.id, e.image, l.text, l.title')
+            ->leftJoin('e.entityLang', 'l')
+            ->where("l.lang = :lang")
+            ->setParameter('lang', $lang)
             ->getQuery();
+
         $result = $qb->getResult();
+
         return $result;
-//        $qb =
-//            $this->createQueryBuilder("event")
-//                ->leftJoin("event.eventLang", "lang")
-//
-//
-//        if ($country) {
-//            $qb
-//                ->leftJoin("country.countryLang", "countryLang")
-//                ->andWhere("countryLang.name = :country")
-//                ->setParameter("country", $country);
-//        }
-//
-//        if ($query) {
-//            $qb->andWhere('cityLang.name LIKE :query');
-//            $qb->setParameter('query', "%" . $query . "%");
-//        }
-//
-//        return $qb->getQuery()->getResult();
     }
 
 }

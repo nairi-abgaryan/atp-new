@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\Type\AmbassadorType;
 use App\Form\Type\VolunteerType;
+use App\Manager\AmbassadorManager;
 use App\Service\MailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,16 +26,21 @@ class VolunteerController extends AbstractController
      * @var EntityManagerInterface $em
      */
     private $em;
+    /**
+     * @var AmbassadorManager
+     */
+    private $ambassadorManager;
 
     /**
      * DonationController constructor.
      * @param EntityManagerInterface $em
      * @param MailService $mailer
      */
-    public function __construct(EntityManagerInterface $em, MailService $mailer)
+    public function __construct(EntityManagerInterface $em, MailService $mailer, AmbassadorManager $ambassadorManager)
     {
         $this->em = $em;
         $this->mailer = $mailer;
+        $this->ambassadorManager = $ambassadorManager;
     }
 
     /**
@@ -92,14 +98,20 @@ class VolunteerController extends AbstractController
             ]);
             $this->mailer->sendAmbassadorEmail($template, 'info@armeniatree.org');
 
+
+
             return $this->render('index/ambassador.html.twig', [
                 'form' => $form->createView(),
                 'done' => true,
             ]);
         }
+        $lang = $request->getLocale();
+
+        $content = $this->ambassadorManager->getAmbassadors($lang);
 
         return $this->render('index/ambassador.html.twig', [
             'form' => $form->createView(),
+            'content' => $content,
         ]);
     }
 }

@@ -18,4 +18,20 @@ class AmbassadorRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ambassador::class);
     }
+    /**
+     * @param $lang
+     * @return Ambassador
+     */
+    public function getAmbassadors($lang)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.id, a.image, l.textBottom, l.textTop, l.title')
+            ->leftJoin('a.entityLang', 'l')
+            ->where("l.lang = :lang")
+            ->setParameter('lang', $lang)
+            ->getQuery();
+        $result = $qb->getResult();
+
+        return $result;
+    }
 }

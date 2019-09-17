@@ -9,25 +9,25 @@
         <div class="container">
             <h1>NEWS</h1>
             {% for item in pager.currentPageResults %}
-                {{ dump(item) }}
-{#                <div class="row">#}
-{#                    <div class="col-lg-6 col-xs-12 news-related-photo-wrapper">#}
-{#                        <div class="news-image-wrapper">#}
-{#                            <img src="../uploads/images/{{ item.Image }}" alt="news-photo">#}
-{#                            <div class="image-overlay"></div>#}
-{#                            <p class="news-date">{{ item.createdAt.format('d M, Y') }}</p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="col-lg-6 col-xs-12 news-related-short-description-wrapper">#}
-{#                        {% autoescape %}#}
-{#                                <h5>{{ item.Title|raw }}</h5>#}
-{#                        {% endautoescape %}#}
-{#                        {% autoescape %}#}
-{#                                <p>{{ item.Text|truncate(300, true)|raw }}</p>#}
-{#                        {% endautoescape %}#}
+{#                {{ dump(item) }}#}
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12 news-related-photo-wrapper">
+                        <div class="news-image-wrapper">
+                            <img src="../uploads/images/{{ item.Image }}" alt="news-photo">
+                            <div class="image-overlay"></div>
+                            <p class="news-date">{{ item.createdAt.format('d M, Y') }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-12 news-related-short-description-wrapper">
+                        {% autoescape %}
+                                <h5>{{ item.Title|raw }}</h5>
+                        {% endautoescape %}
+                        {% autoescape %}
+                                <p>{{ item.Text|truncate(300, true)|raw }}</p>
+                        {% endautoescape %}
 {#                        <a href="{{ path('app.get_news', {'id': item.Id}) }}">READ MORE</a>#}
-{#                    </div>#}
-{#                </div>#}
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </section>
