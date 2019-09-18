@@ -61,7 +61,7 @@ class News
     private $pdf;
 
     /**
-     * @Vich\UploadableField(mapping="images", fileNameProperty="pdf")
+     * @Vich\UploadableField(mapping="images", fileNameProperty="pdf_file")
      * @var File
      */
     private $pdfFile;
