@@ -50,13 +50,13 @@
                     <h5>
                             {{ news.Title|raw }}
                     </h5>
-                    <img src="../uploads/images/{{ news.Image }}" class="img-rounded"/>
+                    <img src="/uploads/images/{{ news.Image }}" class="img-rounded"/>
                     <p class="image-caption">
                           {{ news.caption|raw }}
                     </p>
                         <p>{{ news.Text|raw }}</p>
                     {% if news.pdf is not null %}
-                        <a href="../uploads/images/{{ news.pdf }}" target="_blank" style="font-size: 20px;">{{ news.pdfName }}</a>
+                        <a href="/uploads/images/{{ news.pdf }}" target="_blank" style="font-size: 20px;">{{ news.pdfName }}</a>
                     {% endif %}
                     <br>
                     <br>
@@ -79,7 +79,7 @@
                             </a>
                         {% endfor %}
                     </div>
-                    <a href="{{ path('news') }}">back to news</a>
+{#                    <a href="{{ path('news') }}">back to news</a>#}
                 </div>
                 <div class="col-lg-2"></div>
             </div>

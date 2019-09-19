@@ -26,16 +26,87 @@ easy_admin:
                     - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'caption' }
                     - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'pdf' }
+                    - { property: 'pdfFile', type: 'vich_image' }
+                    - { property: 'video' }
+                    - { property: 'videoFile', type: 'vich_image' }
             search:
                 fields:
                     - property: 'entityLang.title'
                     - property: 'entityLang.text'
+
+        Lessons:
+            class: App\Entity\Lessons
+            label: 'Lessons'
+            list:
+                title: "Lessons"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'pdfName'  }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'pdfName'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'imageFile', type: 'vich_image'  }
+                    - { property: 'pdfName' }
+                    - { property: 'pdfFile', type: 'vich_image' }
+
+        Gallery:
+            class: App\Entity\Gallery
+            label: 'Gallery'
+            list:
+                title: "Gallery"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'text' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'text' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+            form:
+                fields:
+                    - { property: 'text', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'  }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'App\Form\ImageType'}, label: 'Gallery' }
 
         Events:
             class: App\Entity\Event
             label: 'Event'
             list:
                 title: "Event"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title'  }
+                    - { property: 'text'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+
+            form:
+                fields:
+                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'imageFile', type: 'vich_image' }
+            search:
+                fields:
+                    - property: 'entityLang.title'
+                    - property: 'entityLang.text'
+
+        Slide:
+            class: App\Entity\Slide
+            label: 'Slide'
+            list:
+                title: "Slide"
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }

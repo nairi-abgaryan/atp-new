@@ -29,8 +29,8 @@ class Lessons
     /**
      * @var ArrayCollection
      * @ORM\OneToMany(
-     *     targetEntity="App\Entity\NewsLang",
-     *     mappedBy="news",
+     *     targetEntity="App\Entity\LessonsLang",
+     *     mappedBy="lessons",
      *     cascade={"persist", "remove", "refresh", "merge"},
      *     fetch="EXTRA_LAZY",
      *     orphanRemoval=true
@@ -40,19 +40,7 @@ class Lessons
     public $entityLang;
 
     /**
-     * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="App\Entity\Image", cascade={"persist"})
-     */
-    private $images;
-
-    /**
-     * @ORM\Column(type="string", length=256, nullable=true)
-     * @var string
-     */
-    private $pdf;
-
-    /**
-     * @Vich\UploadableField(mapping="images", fileNameProperty="pdf")
+     * @Vich\UploadableField(mapping="images", fileNameProperty="pdfName")
      * @var File
      */
     private $pdfFile;
@@ -76,22 +64,6 @@ class Lessons
         return $this->id;
     }
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    /**
-     * @param ArrayCollection $images
-     */
-    public function setImages($images): void
-    {
-        $this->images = $images;
-    }
-
     public function __toString()
     {
         return $this->title;
@@ -111,22 +83,6 @@ class Lessons
     public function setPdfFile($pdfFile)
     {
         $this->pdfFile = $pdfFile;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPdf()
-    {
-        return $this->pdf;
-    }
-
-    /**
-     * @param string $pdf
-     */
-    public function setPdf($pdf)
-    {
-        $this->pdf = $pdf;
     }
 
     /**
@@ -154,11 +110,11 @@ class Lessons
     }
 
     /**
-     * @param NewsLang $entityLang
+     * @param LessonsLang $entityLang
      */
-    public function addEntityLang(NewsLang $entityLang): void
+    public function addEntityLang(LessonsLang $entityLang): void
     {
-        $entityLang->setNews($this);
+        $entityLang->setLessons($this);
         $this->entityLang->set(0, $entityLang);
     }
 }
