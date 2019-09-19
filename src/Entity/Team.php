@@ -29,7 +29,7 @@ class Team
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $branch_id;
+    private $number;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TeamBranch")
@@ -70,14 +70,14 @@ class Team
         $this->id = $id;
     }
 
-    public function getBranchId(): ?int
+    public function getNumber(): ?int
     {
-        return $this->branch_id;
+        return $this->number;
     }
 
-    public function setBranchId(int $branch_id): self
+    public function setNumber(int $number): self
     {
-        $this->branch_id = $branch_id;
+        $this->number = $number;
 
         return $this;
     }
