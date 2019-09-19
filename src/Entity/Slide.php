@@ -4,7 +4,10 @@ namespace App\Entity;
 
 use App\Entity\Base\BaseEntityVirtual;
 use App\Entity\Base\ImageEntity;
+use App\Entity\Base\TextBottomEntityVirtual;
+use App\Entity\Base\TextTopVirtualEntity;
 use App\Entity\Base\TimestampableEntity;
+use App\Entity\Base\TitleEntityVirtual;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -15,7 +18,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Slide
 {
-    use BaseEntityVirtual, ImageEntity, TimestampableEntity;
+    use BaseEntityVirtual, ImageEntity, TimestampableEntity, TextBottomEntityVirtual, TextTopVirtualEntity;
 
     /**
      * @ORM\Id()

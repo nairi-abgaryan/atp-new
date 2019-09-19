@@ -10,8 +10,8 @@ easy_admin:
                 title: "News"
                 fields:
                     - { property: 'id' }
-                    - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'title' }
+                    - { property: 'text' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
@@ -22,8 +22,8 @@ easy_admin:
 
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'text' , type: 'fos_ckeditor' }
                     - { property: 'caption' }
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'pdf' }
@@ -43,6 +43,7 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'pdfName'  }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
                     - { property: 'id' }
@@ -71,7 +72,7 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             form:
                 fields:
-                    - { property: 'text', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'  }
+                    - { property: 'text', type: 'fos_ckeditor'  }
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'App\Form\ImageType'}, label: 'Gallery' }
 
@@ -85,17 +86,22 @@ easy_admin:
                     - { property: 'title'  }
                     - { property: 'text'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'is_active', label: 'isActive', type: 'toggle' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
                     - { property: 'text'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
-
+                    - { property: 'is_active', label: 'isActive', type: 'toggle' }
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'location' , type: 'fos_ckeditor' }
+                    - { property: 'linkText' , type: 'fos_ckeditor' }
+                    - { property: 'text' , type: 'fos_ckeditor' }
+                    - { property: 'startDate' }
+                    - { property: 'endDate' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -110,19 +116,20 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'text_top'  }
+                    - { property: 'text_bottom'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
 
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'text_top' , type: 'fos_ckeditor' }
+                    - { property: 'text_bottom' , type: 'fos_ckeditor' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -138,6 +145,8 @@ easy_admin:
                     - { property: 'id' }
                     - { property: 'title'  }
                     - { property: 'text'  }
+                    - { property: 'branches' }
+                    - { property: 'number' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
@@ -148,9 +157,10 @@ easy_admin:
 
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'branch_id' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'text' , type: 'fos_ckeditor' }
+                    - { property: 'branches' }
+                    - { property: 'number' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -178,9 +188,9 @@ easy_admin:
 
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text_bottom' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'text_top' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'text_bottom' , type: 'fos_ckeditor' }
+                    - { property: 'text_top' , type: 'fos_ckeditor' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -211,11 +221,11 @@ easy_admin:
 
             form:
                 fields:
-                    - { property: 'title' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'link' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'link_type' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'position' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
-                    - { property: 'order' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'title' , type: 'fos_ckeditor' }
+                    - { property: 'link' , type: 'fos_ckeditor' }
+                    - { property: 'link_type' , type: 'fos_ckeditor' }
+                    - { property: 'position' , type: 'fos_ckeditor' }
+                    - { property: 'order' , type: 'fos_ckeditor' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -240,5 +250,5 @@ easy_admin:
             form:
                 fields:
                     - { property: 'amount' }
-                    - { property: 'text' , type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'  }
+                    - { property: 'text' , type: 'fos_ckeditor'  }
                     - { property: 'imageFile', type: 'vich_image' }
